@@ -25,7 +25,7 @@ class ConfirmedActor(BaseModel):
     """LLM 确认/补漏的攻击者"""
     actor_id: str = Field(description="攻击者唯一标识")
     name: str = Field(description="攻击者名称")
-    theme: str = Field(description="攻击者类型：APT/经济动机/黑客行动主义/恶意代码家族/勒索软件团伙/内部威胁/未知")
+    theme: str = Field(description="攻击者类型：APT/恶意代码家族/未知")
     is_confirmed: bool = Field(description="是否确认为本报告的攻击主体")
     is_new_org: bool = Field(description="是否为新组织（不在候选列表中）")
     aliases_matched: list[str] = Field(default_factory=list, description="在正文中匹配到的别名")

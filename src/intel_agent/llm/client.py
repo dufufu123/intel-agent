@@ -160,7 +160,7 @@ class StructuredExtractor:
                 schema, method="function_calling"
             )
 
-    def invoke(self, input_data: dict) -> T | None:
+    def invoke(self, input_data) -> T | None:
         """
         调用 LLM 做结构化抽取。
 
