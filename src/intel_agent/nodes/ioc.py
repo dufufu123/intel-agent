@@ -86,11 +86,11 @@ def extract_ioc_for_actor(report_text: str, actor_name: str) -> List[dict]:
         )
 
         client = get_llm_client()
-        extractor = client.get_structured_extractor(IOCClassificationResult)
+        extractor = client.get_structured_extractor(IOCClassificationResult, prompt=IOC_CLASSIFY_PROMPT)
         result = extractor.invoke({
             "ioc_candidates": candidates_desc,
             "context": f"攻击者: {actor_name}",
-            "report_text": report_text[:10000],
+            "report_text": report_text,
         })
 
         if result is None:

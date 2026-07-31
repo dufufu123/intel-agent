@@ -60,10 +60,17 @@ pip install playwright && playwright install chromium
 export DEEPSEEK_API_KEY="sk-xxxxxxxx"
 ```
 
-方式二：文件
-```
-# 将 API Key 写入项目根目录 apkey.txt
-echo "sk-xxxxxxxx" > apkey.txt
+方式二：配置文件
+```bash
+# 编辑项目根目录 application.yaml，填入 API Key
+# 该文件已被 .gitignore 排除，不会提交到仓库
+```yaml
+deepseek:
+  api_key: "sk-xxxxxxxx"
+virustotal:
+  api_key: "your-vt-key"
+otx:
+  api_key: "your-otx-key"
 ```
 
 ### 运行
@@ -199,7 +206,7 @@ intel-agent/
 │   └── test_attack_map.py
 │
 ├── pyproject.toml
-├── apkey.txt
+├── application.yaml            # API Key 配置文件（不提交）
 └── README.md
 ```
 

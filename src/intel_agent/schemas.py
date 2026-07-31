@@ -65,7 +65,6 @@ class BasicInfo(BaseModel):
     )
     summary: str = Field(
         description="报告概述，简要描述报告主要内容，不超过 300 字",
-        max_length=300,
     )
     targeted_industries: list[str] = Field(
         description="受攻击/影响的行业列表，如 ['政府', '金融', '能源']。若无法确定则为空列表",
@@ -86,7 +85,8 @@ class BasicInfo(BaseModel):
     @classmethod
     def check_summary_length(cls, v: str) -> str:
         if len(v) > 300:
-            raise ValueError(f"概述超过 300 字（实际 {len(v)} 字）")
+            # 截断而不是报错，避免 LLM 输出超长导致整个抽取失败
+            return v[:300] + "…"
         return v
 
     @field_validator("publish_time")
@@ -226,7 +226,6 @@ class ReportOutput(BaseModel):
     )
     summary: str = Field(
         description="报告概述，不超过 300 字",
-        max_length=300,
     )
     targeted_industries: list[str] = Field(
         description="受攻击行业列表",
@@ -253,7 +252,8 @@ class ReportOutput(BaseModel):
     @classmethod
     def check_summary_length(cls, v: str) -> str:
         if len(v) > 300:
-            raise ValueError(f"概述超过 300 字（实际 {len(v)} 字）")
+            # 截断而不是报错，避免 LLM 输出超长导致整个抽取失败
+            return v[:300] + "…"
         return v
 
     @model_validator(mode="after")

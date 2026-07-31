@@ -1,17 +1,19 @@
 """
-CLI 入口 — 参数解析、env 加载、graph 装配、批量循环
+CLI 入口 — 参数解析、env 加载、graph 装配、批量循环、断点续跑
 
 约束：不放业务逻辑，只做装配与 IO；批量任务单篇失败不中断。
 用法：
   python -m intel_agent <url>
   python -m intel_agent -f urls.txt
   python -m intel_agent --text "报告正文..."
+  python -m intel_agent <url> --no-resume   # 强制全新运行，忽略断点
 """
 
 from __future__ import annotations
 
 import argparse
 import sys
+import time
 from pathlib import Path
 from typing import Optional
 
@@ -84,6 +86,11 @@ def parse_args(argv: list[str] | None = None) -> argparse.Namespace:
         help="禁用断点续跑",
     )
     parser.add_argument(
+        "--no-resume",
+        action="store_true",
+        help="强制全新运行，忽略已有断点",
+    )
+    parser.add_argument(
         "--mermaid",
         action="store_true",
         help="输出 Mermaid 流程图并退出",
@@ -120,9 +127,10 @@ def process_single(
     output_format: str,
     db_path: str,
     no_checkpointer: bool,
+    no_resume: bool = False,
 ) -> Optional[dict]:
     """
-    处理单个 URL/文本。
+    处理单个 URL/文本。支持断点续跑。
 
     Args:
         url: 报告 URL
@@ -131,6 +139,7 @@ def process_single(
         output_format: 输出格式
         db_path: checkpointer 数据库路径
         no_checkpointer: 是否禁用 checkpointer
+        no_resume: 是否强制全新运行（忽略断点）
 
     Returns:
         最终报告 dict，或 None 表示失败
@@ -149,21 +158,63 @@ def process_single(
     # 初始状态
     initial = create_initial_state(url=url, report_text=report_text)
 
-    # 如果直接传了文本，跳过 fetch 节点
-    # 通过设置 report_text 和非空 fetch_error=None 来实现
+    # thread_id: URL 作为唯一标识，文本用 hash
     if report_text and not url:
-        initial["report_text"] = report_text
-        # 使用虚拟 URL 作为 thread_id
-        thread_id = f"text-{hash(report_text) % 100000}"
+        base_thread_id = f"text-{hash(report_text) % 100000}"
     else:
-        thread_id = url
+        base_thread_id = url
+
+    # 强制全新运行：追加时间戳，这样不会命中旧断点
+    if no_resume:
+        thread_id = f"{base_thread_id}-{int(time.time())}"
+        logger.info("--no-resume 模式，thread_id={}", thread_id)
+    else:
+        thread_id = base_thread_id
 
     config = {"configurable": {"thread_id": thread_id}}
 
+    # ---- 检查是否存在断点 ----
+    is_resuming = False
+    if not no_checkpointer and not no_resume:
+        try:
+            current_state = graph.get_state(config)
+            if current_state is not None and current_state.next:
+                # 有未完成的节点 → 断点存在，恢复
+                completed_steps = [
+                    k for k, v in (current_state.values or {}).items()
+                    if v and k not in ("execution_log", "errors")
+                ]
+                logger.info(
+                    "检测到断点: 已完成 {}，将从 '{}' 恢复",
+                    completed_steps or "（无）",
+                    list(current_state.next),
+                )
+                is_resuming = True
+            elif current_state is not None and (current_state.values or {}).get("final_report"):
+                # 上次已完成（无待执行节点 + 已有 final_report）
+                # 换新 thread_id 全新运行，避免累积历史 errors/execution_log
+                thread_id = f"{base_thread_id}-{int(time.time())}"
+                config = {"configurable": {"thread_id": thread_id}}
+                logger.info("检测到上次已完成，换新 thread_id={} 重新开始", thread_id)
+        except Exception as e:
+            # get_state 可能因版本差异或首次运行失败，忽略
+            logger.debug("检查断点状态时出现预期内异常: {}", e)
+
+    # ---- 执行流水线 ----
     try:
-        result = graph.invoke(initial, config)
+        if is_resuming:
+            logger.info("从断点恢复执行...")
+            result = graph.invoke(None, config)
+        else:
+            logger.info("全新执行...")
+            result = graph.invoke(initial, config)
     except Exception as e:
         logger.error("流水线执行异常: {}", e)
+        if not no_checkpointer and not is_resuming:
+            logger.info(
+                "已保存断点。使用相同命令重新运行即可从断点恢复，"
+                "或使用 --no-resume 强制全新运行。"
+            )
         error_report = {
             "error": str(e),
             "url": url or "（文本输入）",
@@ -198,6 +249,7 @@ def process_batch(
     output_format: str,
     db_path: str,
     no_checkpointer: bool,
+    no_resume: bool = False,
 ) -> list[dict]:
     """
     批量处理 URL 列表。
@@ -221,6 +273,7 @@ def process_batch(
                 output_format=output_format,
                 db_path=db_path,
                 no_checkpointer=no_checkpointer,
+                no_resume=no_resume,
             )
             results.append(result or {"error": "unknown", "url": url})
         except Exception as e:
@@ -266,6 +319,7 @@ def main(argv: list[str] | None = None) -> int:
             output_format=args.format,
             db_path=args.db,
             no_checkpointer=args.no_checkpointer,
+            no_resume=args.no_resume,
         )
 
         success = sum(1 for r in results if "error" not in r)
@@ -282,6 +336,7 @@ def main(argv: list[str] | None = None) -> int:
             output_format=args.format,
             db_path=args.db,
             no_checkpointer=args.no_checkpointer,
+            no_resume=args.no_resume,
         )
     elif args.url:
         result = process_single(
@@ -291,6 +346,7 @@ def main(argv: list[str] | None = None) -> int:
             output_format=args.format,
             db_path=args.db,
             no_checkpointer=args.no_checkpointer,
+            no_resume=args.no_resume,
         )
     else:
         logger.error("请提供 URL 或 --text 参数，或使用 -f 指定批量文件")

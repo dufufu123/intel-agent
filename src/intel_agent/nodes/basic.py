@@ -42,9 +42,8 @@ def extract_basic_node(state: dict) -> dict:
 
     try:
         client = get_llm_client()
-        extractor = client.get_structured_extractor(BasicInfo)
-        messages = BASIC_INFO_PROMPT.format_messages(report_text=report_text)
-        result = extractor.invoke(messages)
+        extractor = client.get_structured_extractor(BasicInfo, prompt=BASIC_INFO_PROMPT)
+        result = extractor.invoke({"report_text": report_text})
 
         if result is None:
             raise RuntimeError("LLM 返回 None（结构化输出失败）")

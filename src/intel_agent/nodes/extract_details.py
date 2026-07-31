@@ -69,12 +69,11 @@ def extract_details_node(state: dict) -> dict:
 
     try:
         client = get_llm_client()
-        extractor = client.get_structured_extractor(ActorDetailResult)
-        messages = ACTOR_DETAIL_PROMPT.format_messages(
-            report_text=report_text[:12000],
-            actor_name=actor_name,
-        )
-        result = extractor.invoke(messages)
+        extractor = client.get_structured_extractor(ActorDetailResult, prompt=ACTOR_DETAIL_PROMPT)
+        result = extractor.invoke({
+            "report_text": report_text,
+            "actor_name": actor_name,
+        })
 
         if result is None:
             raise RuntimeError("LLM 返回 None")

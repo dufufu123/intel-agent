@@ -43,7 +43,6 @@ class ConfirmedVuln(BaseModel):
     """LLM 提取的漏洞"""
     cve_id: str | None = Field(default=None, description="CVE 编号，如 CVE-2021-34527")
     name: str | None = Field(default=None, description="漏洞名称，如 PrintNightmare")
-    description: str | None = Field(default=None)
 
 
 class ConfirmedActor(BaseModel):
@@ -164,11 +163,8 @@ def identify_actors_node(state: dict) -> dict:
     # ---- 第一步：LLM 直接从报告中识别攻击者 ----
     try:
         client = get_llm_client()
-        extractor = client.get_structured_extractor(ActorConfirmationResult)
-        messages = ACTOR_CONFIRM_PROMPT.format_messages(
-            report_text=report_text
-        )
-        result = extractor.invoke(messages)
+        extractor = client.get_structured_extractor(ActorConfirmationResult, prompt=ACTOR_CONFIRM_PROMPT)
+        result = extractor.invoke({"report_text": report_text})
 
         if result is None:
             raise RuntimeError("LLM 返回 None")

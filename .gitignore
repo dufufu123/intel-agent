@@ -29,9 +29,9 @@ htmlcov/
 *.cover
 
 # Project specific
-apkey.txt
+application.yaml
 checkpoints.db
-output/
+/output/
 *.log
 
 # OS

@@ -18,8 +18,8 @@ fetch -> extract_basic -> identify_actors -> fan-out(逐actor: extract_details(I
 from __future__ import annotations
 
 import logging
+import sqlite3
 from pathlib import Path
-from typing import Optional
 
 from langgraph.checkpoint.base import BaseCheckpointSaver
 from langgraph.checkpoint.sqlite import SqliteSaver
@@ -211,9 +211,8 @@ def build_graph(
     else:
         db_path = Path("checkpoints.db")
 
-    return builder.compile(
-        checkpointer=SqliteSaver.from_conn_string(str(db_path))
-    )
+    conn = sqlite3.connect(str(db_path), check_same_thread=False)
+    return builder.compile(checkpointer=SqliteSaver(conn))
 
 
 def get_default_graph() -> StateGraph:

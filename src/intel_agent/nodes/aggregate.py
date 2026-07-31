@@ -63,7 +63,6 @@ def aggregate_node(state: dict) -> dict:
             vulnerabilities.append(Vulnerability(
                 cve_id=v_dict.get("cve_id"),
                 name=v_dict.get("name"),
-                description=v_dict.get("description"),
             ))
 
         # 转换 TTP（来自 identify_actors LLM 抽取，已含完整编号/名称/战术）
