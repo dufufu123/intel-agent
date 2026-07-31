@@ -21,7 +21,7 @@ logger = logging.getLogger(__name__)
 
 class DetailIOC(BaseModel):
     value: str = Field(description="IOC 值")
-    type: str = Field(description="IOC 类型：IPv4/IPv6/Domain/URL/MD5/SHA1/SHA256/FilePath/Registry/Email")
+    type: str = Field(description="IOC 类型：IP/Domain/Email/URL/Hash/CVE/TTP")
     threat_level: str = Field(description="威胁等级：恶意/可疑/未知/白名单", default="未知")
     tags: list[str] = Field(default_factory=list)
     context: str | None = Field(default=None)

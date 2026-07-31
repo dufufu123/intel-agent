@@ -77,11 +77,11 @@ ACTOR_DETAIL_SYSTEM = """你是一个威胁情报分析师。请从报告中提�
 要提取的攻击者：{actor_name}
 
 IOC 要求：
-- value: IOC 值，如 "192.168.1.1"、"malware.exe"、"d41d8cd98f00b204e9800998ecf8427e"
-- type: IOC 类型，必须为以下之一：IPv4, IPv6, Domain, URL, MD5, SHA1, SHA256, FilePath, Registry, Email
+- value: IOC 值，如 "192.168.1.1"、"d41d8cd98f00b204e9800998ecf8427e、"c2.com""
+- type: IOC 类型，必须为以下之一：IP/Domain/Email/URL/Hash/CVE/TTP
 - threat_level: 威胁等级，必须为以下之一：恶意, 可疑, 未知, 白名单。必填，无法确定时填"未知"
 - tags: 附加标签列表，如 ["C2", "Downloader", "Phishing", "Dropper"]
-- context: 该 IOC 在报告中的上下文说明
+- context: 该 IOC 在报告中的上下文说明，如果上下文无意义可以不添加。
 
 注意：
 - 只提取报告中明确提到的、与 {actor_name} 关联的 IOC

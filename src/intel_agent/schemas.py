@@ -39,7 +39,7 @@ class IOCTypeEnum(str, Enum):
     URL = "URL"
     HASH = "Hash"
     CVE = "CVE"
-    TTP = "Ttp"
+    TTP = "TTP"
 
 class ThreatLevelEnum(str, Enum):
     """威胁等级（threat_level 字段取值，必填，缺省为"未知"）"""
