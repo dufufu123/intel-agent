@@ -10,7 +10,7 @@
 交互入口  CLI (python -m intel_agent <url>) / 批量 (-f urls.txt) / 可选 Streamlit
 编排      LangGraph 状态机（分步抽取流水线 + 早退短路 + fan-out 并行）
 抽取能力  各步 LLM 抽取器 (prompt + structured_output) + 纯 Python 辅助
-工具数据  fetcher / actor_config (热加载) / ioc_regex / whitelist / attack_map
+工具数据  fetcher / actor_config (热加载) / ioc_regex / whitelist
 LLM 模型  ChatOpenAI (DeepSeek) + with_structured_output + 重试 + 降级
 输出存储  JSON (Pydantic 校验) + 可选 MD + loguru 日志 + output/ 归档
 ```
@@ -27,10 +27,10 @@ fetch ──[失败/空/过短]──> export ──> END
                     └──[有 actor]──> fan_out_dispatcher
                                         │
                               ┌─[Send: actor1]──> extract_details ─┐
-                              ├─[Send: actor2]──> extract_details ─┤  (并行)
+                              ├─[Send: actor2]──> extract_details ─┤  (并行，只抽 IOC)
                               └─[Send: actorN]──> extract_details ─┘
                                                                     │
-                                                            map_ttps ──> aggregate ──> export
+                                                            aggregate ──> export
 ```
 
 ## 快速开始
@@ -39,6 +39,10 @@ fetch ──[失败/空/过短]──> export ──> END
 
 - Python ≥ 3.10
 - DeepSeek API Key（[申请地址](https://platform.deepseek.com/)）
+- Windows 下建议启用 UTF-8 模式，避免中文编码问题：
+  ```powershell
+  $env:PYTHONUTF8=1
+  ```
 
 ### 安装
 
@@ -50,7 +54,8 @@ git clone <repo-url> && cd intel-agent
 pip install -e ".[dev]"
 
 # 可选：Playwright 兜底抓取 JS 渲染页面
-pip install playwright && playwright install chromium
+# 部分安全博客为 JS 渲染页面，requests+readability 抓不到正文时需要它
+pip install -e ".[playwright]" && playwright install chromium
 ```
 
 ### 配置 API Key
@@ -98,6 +103,19 @@ python -m intel_agent <url> --verbose
 python -m intel_agent --mermaid
 ```
 
+### 断点续跑
+
+- 默认启用 SQLite checkpointer（`checkpoints.db`），同 URL 崩溃后重跑会自动从断点恢复
+- 已完成的 URL 再次运行会换新 thread_id 全新执行，不会累积历史错误
+- `--no-resume`：强制全新运行，忽略已有断点
+- `--no-checkpointer`：完全禁用断点续跑
+
+### 使用注意
+
+1. **Windows 中文编码**：运行前建议 `$env:PYTHONUTF8=1`，避免中文 prompt 导致 `UnicodeEncodeError`
+2. **Playwright**：部分安全博客是 JS 渲染页面，`requests+readability` 抓不到正文时需要安装（见上方安装步骤）
+3. **API Key**：填入 `application.yaml` 或设置环境变量 `DEEPSEEK_API_KEY`
+
 ## 输出格式
 
 ### JSON 结构
@@ -144,7 +162,7 @@ python -m intel_agent --mermaid
           "technique_id": "T1566.001",
           "technique_name": "鱼叉式钓鱼附件",
           "tactic": "初始访问",
-          "is_verified": true
+          "description": "..."
         }
       ]
     }
@@ -172,11 +190,10 @@ python -m intel_agent --mermaid
 intel-agent/
 ├── config/
 │   ├── actors.yaml              # 攻击者档案（可热加载，无需重启）
-│   ├── whitelist.yaml           # IOC 白名单（云/CDN/安全厂商/私有IP）
-│   └── attack_mapping.yaml      # ATT&CK 技战术映射（100+ 技术）
+│   └── whitelist.yaml           # IOC 白名单（云/CDN/安全厂商/私有IP）
 │
 ├── src/intel_agent/
-│   ├── cli.py                   # CLI 入口
+│   ├── cli.py                   # CLI 入口 + 断点续跑
 │   ├── graph.py                 # LangGraph 编排（节点+边+router+fan-out）
 │   ├── state.py                 # ExtractionState + reducer
 │   ├── schemas.py               # Pydantic 模型（单一真相源）
@@ -186,24 +203,21 @@ intel-agent/
 │   ├── nodes/
 │   │   ├── fetch.py             # 抓取（requests+readability + Playwright 兜底）
 │   │   ├── basic.py             # 基础信息抽取
-│   │   ├── actors.py            # 攻击者识别（配置匹配 + LLM 确认 + 新组织标记）
-│   │   ├── extract_details.py   # 单 actor 详情抽取（fan-out 并行）
+│   │   ├── actors.py            # 攻击者识别（LLM 直接识别 + 配置交叉比对 + 新组织标记）
+│   │   ├── extract_details.py   # 单 actor IOC 抽取（fan-out 并行）
 │   │   ├── ioc.py               # IOC 正则召回 + 白名单过滤 + LLM 判级
-│   │   ├── ttp.py               # ATT&CK 技术名提取 + 查表转编号
 │   │   └── aggregate.py         # 聚合 + 校验 + 去重 + 补缺省
 │   ├── tools/
 │   │   ├── ioc_regex.py         # 8 类 IOC 正则
 │   │   ├── whitelist.py         # 白名单过滤
-│   │   ├── actor_config.py      # 攻击者配置 + 热加载
-│   │   └── attack_map.py        # ATT&CK 映射表
+│   │   └── actor_config.py      # 攻击者配置 + 热加载
 │   └── output/
 │       ├── exporter.py          # JSON / Markdown 导出 + 归档
 │       └── logging.py           # loguru 日志
 │
 ├── tests/
 │   ├── test_ioc_regex.py
-│   ├── test_actor_config.py
-│   └── test_attack_map.py
+│   └── test_actor_config.py
 │
 ├── pyproject.toml
 ├── application.yaml            # API Key 配置文件（不提交）
@@ -220,7 +234,8 @@ intel-agent/
 | **LLM 产信号，代码做路由** | LLM 的 structured_output 多返回 confidence 等字段，代码用阈值路由 |
 | **Pydantic schema 是单一真相源** | `schemas.py` 同时服务 structured_output + 校验 + 导出 + 设计说明书 Schema |
 | **正则召回 + LLM 判级，白名单前置** | 正则管格式召回，LLM 管语义判级，白名单在 LLM 前过滤良性资产 |
-| **配置驱动 + 热加载** | 攻击者/白名单/ATT&CK 全部配置化；actors.yaml 支持 mtime 热加载，运营改档案不重启 |
+| **配置驱动 + 热加载** | 攻击者/白名单全部配置化；actors.yaml 支持 mtime 热加载，运营改档案不重启 |
+| **LLM 出全，代码兜底** | tools/vulns/ttps 由 LLM 一次抽取（含 ATT&CK 编号）；配置交叉比对识别已知/新组织 |
 
 ## 能力矩阵
 
@@ -228,9 +243,9 @@ intel-agent/
 |------|----------|
 | 报告抓取 | requests + readability-lxml 为主，Playwright 兜底 JS 渲染页面 |
 | 基础信息抽取 | LLM 抽 report_name / publish_time / summary / industries / countries |
-| 攻击者识别 | 别名字典词边界匹配 → LLM 确认主体 + 判 theme + 补漏 → 新组织标记 |
-| IOC 抽取 | 8 类正则召回候选 → 白名单前置过滤 → LLM 定 type / threat_level / tags |
-| ATT&CK 映射 | LLM 出技术名 → 确定性查表转编号 → 未知编号校验标记 |
+| 攻击者识别 | LLM 直接从报告识别攻击主体 + 判 theme + 抽 tools/vulns/ttps → 配置交叉比对 → 新组织标记 |
+| IOC 抽取 | LLM 从报告中抽取每个攻击者关联的 IOC，判 type / threat_level / tags（fan-out 并行） |
+| ATT&CK 映射 | LLM 直接输出 technique_id / technique_name / tactic（一步到位） |
 | 多 actor 并行 | LangGraph Send API fan-out + map-reduce |
 | 早退短路 | 抓取失败/空正文/无攻击者 → 直奔 export |
 | 断点续跑 | SQLite checkpointer，同 URL 二次 invoke 从断点继续 |
@@ -276,5 +291,5 @@ pytest tests/ -v
 - [x] 清空 `DEEPSEEK_API_KEY`：降级产出部分字段 + 告警
 - [x] 运行中改 `actors.yaml` 新增组织：热加载后下次抽取即识别
 - [x] 多 actor 报告：fan-out 并行，details 不丢失（reducer 正确）
-- [x] 崩溃续跑：同 `thread_id` 二次 invoke 从断点继续
-- [x] 纯 Python 工具层（ioc_regex / actor_config / attack_map）29 个测试全部通过
+- [x] 崩溃续跑：同 `thread_id` 二次 invoke 从断点继续；已完成任务自动换新 thread_id 重新开始
+- [x] 纯 Python 工具层（ioc_regex / actor_config）测试全部通过
