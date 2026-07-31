@@ -151,9 +151,9 @@ class Vulnerability(BaseModel):
 
 
 class TTP(BaseModel):
-    """ATT&CK 技战术 — 节点 extract_details + map_ttps 产出"""
+    """ATT&CK 技战术 — 节点 identify_actors 产出，LLM 直接给出完整编号/名称/战术"""
     technique_id: Optional[str] = Field(
-        description="ATT&CK 技术编号，如 'T1566.001'。经查表确认",
+        description="ATT&CK 技术编号，如 'T1566.001'",
         default=None,
     )
     technique_name: str = Field(
@@ -166,10 +166,6 @@ class TTP(BaseModel):
     description: Optional[str] = Field(
         description="该技术在报告中的具体表现描述",
         default=None,
-    )
-    is_verified: bool = Field(
-        description="编号是否经查表确认（True=查表命中，False=LLM 直出未知编号）",
-        default=True,
     )
 
 

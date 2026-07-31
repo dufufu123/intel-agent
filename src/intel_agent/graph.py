@@ -7,8 +7,8 @@ LangGraph 编排 — 声明节点、边、条件 router、fan-out
 - 流程结构全在此文件可见，路由判断不藏进节点内部
 
 节点链：
-fetch -> extract_basic -> identify_actors -> ttps & tools & vul -> fan-out(逐actor: extract_details(具体IOC))
-       -> aggregate -> export -> END
+fetch -> extract_basic -> identify_actors -> fan-out(逐actor: extract_details(IOC))
+      -> aggregate -> export -> END
 
 条件分支：
 - fetch 失败/空正文 -> 直奔 export
@@ -31,7 +31,6 @@ from .nodes.aggregate import aggregate_node
 from .nodes.basic import extract_basic_node
 from .nodes.extract_details import extract_details_node
 from .nodes.fetch import fetch_node
-from .nodes.ttp import map_ttps_node
 from .state import ExtractionState
 
 logger = logging.getLogger(__name__)
@@ -70,23 +69,6 @@ def route_after_actors(state: ExtractionState) -> str:
 
     return "fan_out_dispatcher"
 
-
-def route_after_details(state: ExtractionState) -> str:
-    """
-    extract_details 后的路由。
-
-    正常流转到 map_ttps。
-    """
-    # 检查是否有 actor_details
-    if not state.get("actor_details") and not state.get("actors"):
-        logger.info("[router] 无 actor_details，跳过 map_ttps")
-        return "aggregate"
-    return "map_ttps"
-
-
-# ============================================================
-# Fan-out 分发
-# ============================================================
 
 def fan_out_dispatcher(state: ExtractionState) -> dict:
     """
@@ -179,7 +161,6 @@ def build_graph(
     builder.add_node("identify_actors", identify_actors_node)
     builder.add_node("fan_out_dispatcher", fan_out_dispatcher)
     builder.add_node("extract_details", extract_details_node)
-    builder.add_node("map_ttps", map_ttps_node)
     builder.add_node("aggregate", aggregate_node)
     builder.add_node("export", export_node)
 
@@ -212,11 +193,8 @@ def build_graph(
     # fan_out_dispatcher -> fan-out extract_details（并行）
     builder.add_conditional_edges("fan_out_dispatcher", fan_out_actor_details)
 
-    # extract_details -> map_ttps（barrier: 所有 fan-out 完成才进入）
-    builder.add_edge("extract_details", "map_ttps")
-
-    # map_ttps -> aggregate
-    builder.add_edge("map_ttps", "aggregate")
+    # extract_details -> aggregate（barrier: 所有 fan-out 完成才进入）
+    builder.add_edge("extract_details", "aggregate")
 
     # aggregate -> export
     builder.add_edge("aggregate", "export")

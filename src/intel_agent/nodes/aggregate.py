@@ -2,23 +2,21 @@
 聚合校验导出节点 — 组装 ReportOutput -> Pydantic 校验 -> 去重/补缺省
 
 约束：永远输出合法 JSON，校验不过也要输出带 error 的结构化 JSON，不能崩。
+tools/vulns/ttps 已在 identify_actors 中由 LLM 完整抽取，此处直接转换。
 """
 
 from __future__ import annotations
 
 import logging
-from typing import Optional
 
 from ..schemas import (
     IOC,
     TTP,
     ReportOutput,
     ThreatActor,
-    ThreatLevelEnum,
     Tool,
     Vulnerability,
 )
-from ..tools.attack_map import get_attack_map
 
 logger = logging.getLogger(__name__)
 
@@ -27,14 +25,12 @@ def aggregate_node(state: dict) -> dict:
     """
     聚合 + 校验（LangGraph 节点函数）。
 
-    1. 组装 ReportOutput
-    2. Pydantic 校验（自动去重、补缺省）
-    3. 对 actor_details 中的 TTP 做查表
+    1. 从 actor_details 组装 ThreatActor 列表
+    2. 组装 ReportOutput
+    3. Pydantic 校验（自动去重、补缺省）
     4. 返回 final_report
     """
     logger.info("[aggregate] 聚合结果...")
-
-    attack_map = get_attack_map()
 
     # ---- 构建 ThreatActor 列表 ----
     threator = []
@@ -52,7 +48,7 @@ def aggregate_node(state: dict) -> dict:
                 context=ioc_dict.get("context"),
             ))
 
-        # 转换工具
+        # 转换工具（来自 identify_actors LLM 抽取）
         tools = []
         for t_dict in ad.get("tools", []):
             tools.append(Tool(
@@ -61,42 +57,23 @@ def aggregate_node(state: dict) -> dict:
                 description=t_dict.get("description"),
             ))
 
-        # 转换漏洞
+        # 转换漏洞（来自 identify_actors LLM 抽取）
         vulnerabilities = []
         for v_dict in ad.get("vulnerabilities", []):
             vulnerabilities.append(Vulnerability(
                 cve_id=v_dict.get("cve_id"),
                 name=v_dict.get("name"),
+                description=v_dict.get("description"),
             ))
 
-        # 转换 TTP（查表）
+        # 转换 TTP（来自 identify_actors LLM 抽取，已含完整编号/名称/战术）
         ttps = []
         for ttp_dict in ad.get("ttps", []):
-            tech_name = ttp_dict.get("technique_name", "")
-            tid = ttp_dict.get("technique_id")
-            tactic = ttp_dict.get("tactic")
-            is_verified = ttp_dict.get("is_verified", False)
-
-            if not tid and tech_name:
-                # 查表
-                mapped_id, mapped_tactic = attack_map.lookup_by_name(tech_name)
-                if mapped_id:
-                    tid = mapped_id
-                    if not tactic:
-                        tactic = mapped_tactic
-                    is_verified = True
-                else:
-                    # 检查 LLM 是否直出编号
-                    if attack_map.is_known_id(tech_name):
-                        tid = tech_name
-                        is_verified = True
-
             ttps.append(TTP(
-                technique_id=tid,
-                technique_name=tech_name,
-                tactic=tactic,
+                technique_id=ttp_dict.get("technique_id"),
+                technique_name=ttp_dict.get("technique_name", ""),
+                tactic=ttp_dict.get("tactic"),
                 description=ttp_dict.get("description"),
-                is_verified=is_verified,
             ))
 
         threator.append(ThreatActor(

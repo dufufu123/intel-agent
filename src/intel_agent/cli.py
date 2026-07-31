@@ -105,7 +105,6 @@ def create_initial_state(
         "actors": [],
         "new_org_flags": [],
         "actor_details": [],
-        "ttps": [],
         "final_report": None,
         "execution_log": [],
         "errors": [],

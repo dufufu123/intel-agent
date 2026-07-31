@@ -161,6 +161,19 @@ class ActorConfig:
         with self._lock:
             return name.lower().strip() in self._alias_map
 
+    def lookup_by_name(self, name: str) -> Optional[dict]:
+        """
+        按名称或别名查找攻击者配置。
+
+        Args:
+            name: 攻击者名称或别名
+
+        Returns:
+            匹配到的 actor 信息 dict，或 None
+        """
+        with self._lock:
+            return self._alias_map.get(name.lower().strip())
+
     def reload(self) -> None:
         """强制重新加载配置"""
         self._load_config()

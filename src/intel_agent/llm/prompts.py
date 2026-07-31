@@ -29,25 +29,37 @@ BASIC_INFO_PROMPT = ChatPromptTemplate.from_messages([
 ])
 
 # ============================================================
-# 2. 攻击者确认 + 补漏
+# 2. 攻击者识别（LLM 直接从报告中识别所有攻击者）
 # ============================================================
 
-ACTOR_CONFIRM_SYSTEM = """你是一个威胁情报分析师。请根据报告内容，完成以下任务：
+ACTOR_CONFIRM_SYSTEM = """你是一个威胁情报分析师。请从以下安全报告中识别所有攻击者（威胁行为者/恶意代码家族）。
 
-1. 确认以下候选攻击者是否为本报告的攻击主体（而非被引用或提及的第三方）：
-候选列表：{candidates}
+对每个识别到的攻击者，提取以下信息：
 
-2. 判断每个被确认的攻击者的类型（theme）：
+1. name: 攻击者名称（如 "APT28"、"Conti"、"Emotet"）
+2. theme: 攻击者类型，必须为以下之一：
    - "APT": 国家级/高级持续性威胁组织
    - "恶意代码家族": 恶意软件/代码家族
    - "未知": 无法确定类型
-
-3. 如果报告中有攻击者不在上述候选列表中，请补充发现，并标记 is_new_org=true。
+3. tools（工具/恶意软件）：
+   - name: 工具/恶意软件名称
+   - category: 分类（RAT / Downloader / Dropper / Exploit Kit / 后门 / 勒索软件 / 正常工具）
+   - description: 使用描述
+4. vulnerabilities（漏洞）：
+   - cve_id: CVE 编号（如 "CVE-2021-34527"），没有则填 null
+   - name: 漏洞名称（如 "PrintNightmare"）
+   - description: 利用描述
+5. ttps（ATT&CK 技战术）：
+   - technique_id: ATT&CK 技术编号（如 "T1566.001"、"T1059"）
+   - technique_name: 技术名称（如 "鱼叉式钓鱼附件"、"PowerShell"）
+   - tactic: 所属战术（如 "初始访问"、"执行"、"持久化"、"权限提升"、"防御规避"、"凭证访问"、"发现"、"横向移动"、"收集"、"命令与控制"、"数据渗出"、"影响"）
+   - description: 该技术在报告中的具体表现
 
 重要规则：
-- 只确认本报告实际描述的、作为攻击方的组织
-- 报告中仅被引用/提及/关联的组织不算攻击主体
-- 一个报告可以有多个攻击主体"""
+- 只识别本报告实际描述的、作为攻击方的组织，报告中仅被引用/提及/关联的组织不算
+- 一个报告可以有多个攻击主体
+- 只提取报告中明确提到的内容，不要凭空编造
+- 如果某项没有信息，返回空列表"""
 
 ACTOR_CONFIRM_HUMAN = "报告内容：\n{report_text}"
 
@@ -57,37 +69,24 @@ ACTOR_CONFIRM_PROMPT = ChatPromptTemplate.from_messages([
 ])
 
 # ============================================================
-# 3. 单 Actor 详情抽取（IOC + 工具 + 漏洞 + TTP）
+# 3. 单 Actor IOC 抽取
 # ============================================================
 
-ACTOR_DETAIL_SYSTEM = """你是一个威胁情报分析师。请从报告中提取以下攻击者的详细信息。
+ACTOR_DETAIL_SYSTEM = """你是一个威胁情报分析师。请从报告中提取以下攻击者关联的 IOC（失陷指标）。
 
 要提取的攻击者：{actor_name}
 
-请提取以下信息：
-
-1. IOC（失陷指标）：
-   - type 必须为以下之一：IP, Domain, Email, URL, Hash(MD5,SHA1，SHA256等), CVE, TTP(战技术手法)
-   - threat_level 必须为以下之一：恶意, 可疑, 未知, 白名单。必填，无法确定时填"未知"
-   - tags: 附加标签列表，如 ["C2", "Downloader", "Phishing", "Dropper"]
-   - context: 该 IOC 在报告中的上下文说明
-
-2. tools（工具/恶意软件）：
-   - name: 工具/恶意软件名称
-   - category: 分类（RAT / Downloader / Dropper / Exploit Kit / 后门 / 勒索软件 / 正常工具）
-   - description: 使用描述
-
-3. vulnerabilities（漏洞）：
-   - cve_id: CVE 编号（如 "CVE-2021-34527"）
-   - name: 漏洞名称（如 "PrintNightmare"）
-
-4. ttps（ATT&CK 技战术）：
-   - technique_name: 技术名称（如 "鱼叉式钓鱼附件"、"PowerShell"）
-   - description: 该技术在报告中的具体表现
+IOC 要求：
+- value: IOC 值，如 "192.168.1.1"、"malware.exe"、"d41d8cd98f00b204e9800998ecf8427e"
+- type: IOC 类型，必须为以下之一：IPv4, IPv6, Domain, URL, MD5, SHA1, SHA256, FilePath, Registry, Email
+- threat_level: 威胁等级，必须为以下之一：恶意, 可疑, 未知, 白名单。必填，无法确定时填"未知"
+- tags: 附加标签列表，如 ["C2", "Downloader", "Phishing", "Dropper"]
+- context: 该 IOC 在报告中的上下文说明
 
 注意：
-- 只提取报告中明确提到的内容，不要凭空编造
-- 如果某项没有信息，返回空列表"""
+- 只提取报告中明确提到的、与 {actor_name} 关联的 IOC
+- 不要凭空编造
+- 如果报告中该攻击者没有明确 IOC，返回空列表"""
 
 ACTOR_DETAIL_HUMAN = "报告内容：\n{report_text}\n\n要提取的攻击者：{actor_name}"
 
@@ -125,27 +124,4 @@ IOC_CLASSIFY_HUMAN = "报告内容：\n{report_text}"
 IOC_CLASSIFY_PROMPT = ChatPromptTemplate.from_messages([
     ("system", IOC_CLASSIFY_SYSTEM),
     ("user", IOC_CLASSIFY_HUMAN),
-])
-
-# ============================================================
-# 5. ATT&CK 技术名提取（供后续查表）
-# ============================================================
-
-TTP_SYSTEM = """你是一个威胁情报分析师。请从报告中提取攻击者使用的 ATT&CK 技战术。
-
-要求：
-- technique_name: 技术名称（如 "鱼叉式钓鱼附件"、"PowerShell"、"凭据转储"、"进程注入"）
-- description: 该技术在报告中的具体表现描述
-
-注意：
-- 只提取报告中明确描述的技战术行为
-- 使用标准 ATT&CK 技术名（中文或英文均可）
-- 技术名越具体越好（如 "鱼叉式钓鱼附件" 优于 "鱼叉式钓鱼"）
-- 如果报告没有明确描述技战术，返回空列表"""
-
-TTP_HUMAN = "报告内容：\n{report_text}"
-
-TTP_PROMPT = ChatPromptTemplate.from_messages([
-    ("system", TTP_SYSTEM),
-    ("user", TTP_HUMAN),
 ])
