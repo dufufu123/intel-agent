@@ -1,0 +1,68 @@
+# 攻击者档案配置
+# 运营团队可直接修改此文件，系统通过热加载自动识别变更，无需重启
+version: 1
+actors:
+  - id: apt28
+    name: APT28
+    aliases: [Fancy Bear, Sofacy, Pawn Storm, Strontium, Forest Blizzard, Sednit]
+    theme: APT
+
+  - id: apt29
+    name: APT29
+    aliases: [Cozy Bear, The Dukes, Midnight Blizzard, Nobelium, UNC2452]
+    theme: APT
+
+  - id: apt41
+    name: APT41
+    aliases: [Winnti, Barium, Wicked Panda, Double Dragon]
+    theme: APT
+
+  - id: lazarus
+    name: Lazarus Group
+    aliases: [Lazarus, Hidden Cobra, APT38, Guardians of Peace, Zinc, Diamond Sleet]
+    theme: APT
+
+  - id: kim-sukki
+    name: Kimsuky
+    aliases: [Kimsuky, Black Banshee, Thallium, Velvet Chollima]
+    theme: APT
+
+  - id: conti
+    name: Conti
+    aliases: [Conti ransomware, Conti Ransomware]
+    theme: 恶意代码家族
+
+  - id: emotet
+    name: Emotet
+    aliases: [Heodo, Geodo]
+    theme: 恶意代码家族
+
+  - id: lockbit
+    name: LockBit
+    aliases: [LockBit ransomware, LockBit Ransomware, ABCD]
+    theme: 恶意代码家族
+
+  - id: darkgate
+    name: DarkGate
+    aliases: [DarkGate loader, DarkGate malware]
+    theme: 恶意代码家族
+
+  - id: cobalt-strike
+    name: Cobalt Strike
+    aliases: [Cobalt Strike beacon, CobaltStrike]
+    theme: 恶意代码家族
+
+  - id: mustang-panda
+    name: Mustang Panda
+    aliases: [Mustang Panda, Red Delta, TA416]
+    theme: APT
+
+  - id: sidewinder
+    name: SideWinder
+    aliases: [SideWinder, Rattlesnake, T-APT-04]
+    theme: APT
+
+  - id: sandworm
+    name: Sandworm
+    aliases: [Sandworm, BlackEnergy, Voodoo Bear, Iron Viking]
+    theme: APT

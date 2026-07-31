@@ -1,0 +1,95 @@
+# IOC 白名单配置
+# 前置过滤：在 LLM 判级之前过滤明确良性资产，降低误报，节省 LLM 调用
+version: 1
+
+# 私有 / 保留 IP 段（CIDR 格式）
+private_ip_ranges:
+  - 10.0.0.0/8
+  - 172.16.0.0/12
+  - 192.168.0.0/16
+  - 127.0.0.0/8
+  - 169.254.0.0/16
+  - 224.0.0.0/4
+
+# 知名云服务商 / CDN 域名（子域名匹配）
+cdn_and_cloud_domains:
+  - amazonaws.com
+  - cloudfront.net
+  - azurewebsites.net
+  - azureedge.net
+  - cloudflare.net
+  - cloudflare.com
+  - fastly.net
+  - akamai.net
+  - akamaiedge.net
+  - googleapis.com
+  - googlehosted.com
+  - gstatic.com
+  - googleusercontent.com
+  - github.io
+  - githubusercontent.com
+  - jsdelivr.net
+  - cdn.jsdelivr.net
+  - unpkg.com
+  - vercel.app
+  - netlify.app
+  - herokuapp.com
+  - onrender.com
+  - workers.dev
+  - pages.dev
+  - r2.dev
+
+# 安全厂商 / 知名分析平台域名
+security_vendor_domains:
+  - virustotal.com
+  - abuse.ch
+  - urlhaus.abuse.ch
+  - malwarebazaar.abuse.ch
+  - threatfox.abuse.ch
+  - alienvault.com
+  - otx.alienvault.com
+  - hybrid-analysis.com
+  - joesandbox.com
+  - any.run
+  - app.any.run
+  - intezer.com
+  - analyze.intezer.com
+  - virusscan.jotti.org
+  - talosintelligence.com
+  - blog.talosintelligence.com
+  - securelist.com
+  - microsoft.com
+  - msdn.microsoft.com
+  - docs.microsoft.com
+  - learn.microsoft.com
+  - support.microsoft.com
+  - google.com
+  - github.com
+  - twitter.com
+  - x.com
+  - facebook.com
+  - linkedin.com
+  - reddit.com
+  - medium.com
+  - wikipedia.org
+  - archive.org
+  - web.archive.org
+
+# 知名公共 DNS / 邮件服务商
+public_service_domains:
+  - google-public-dns-a.google.com
+  - dns.google
+  - 8.8.8.8
+  - 8.8.4.4
+  - 1.1.1.1
+  - 9.9.9.9
+  - opendns.com
+
+# 示例 / 文档用域名
+example_domains:
+  - example.com
+  - example.org
+  - example.net
+  - test.com
+  - localhost
+  - localdomain

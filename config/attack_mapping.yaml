@@ -1,0 +1,367 @@
+# ATT&CK 技战术映射表
+# 技术名 -> 编号的确定性查表，LLM 出技术名，代码查表转编号
+# 可基于 MITRE ATT&CK 企业版扩展
+version: 1
+techniques:
+  # ---- 初始访问 (TA0001) ----
+  - name: 鱼叉式钓鱼附件
+    id: T1566.001
+    tactic: 初始访问
+  - name: 鱼叉式钓鱼链接
+    id: T1566.002
+    tactic: 初始访问
+  - name: 鱼叉式钓鱼
+    id: T1566
+    tactic: 初始访问
+  - name: 针对外部远程服务的利用
+    id: T1133
+    tactic: 初始访问
+  - name: 水坑攻击
+    id: T1189
+    tactic: 初始访问
+  - name: 供应链攻陷
+    id: T1195
+    tactic: 初始访问
+  - name: 信任关系
+    id: T1199
+    tactic: 初始访问
+  - name: 有效账号
+    id: T1078
+    tactic: 初始访问
+  - name: 外部远程服务
+    id: T1133
+    tactic: 初始访问
+  - name: 硬件添加
+    id: T1200
+    tactic: 初始访问
+
+  # ---- 执行 (TA0002) ----
+  - name: 命令与脚本解释器
+    id: T1059
+    tactic: 执行
+  - name: PowerShell
+    id: T1059.001
+    tactic: 执行
+  - name: Windows 命令解释器
+    id: T1059.003
+    tactic: 执行
+  - name: Unix Shell
+    id: T1059.004
+    tactic: 执行
+  - name: Windows 管理规范
+    id: T1047
+    tactic: 执行
+  - name: 计划任务
+    id: T1053
+    tactic: 执行
+  - name: 系统服务执行
+    id: T1569
+    tactic: 执行
+  - name: 用户执行
+    id: T1204
+    tactic: 执行
+  - name: 恶意宏
+    id: T1204.002
+    tactic: 执行
+  - name: 利用客户端执行
+    id: T1203
+    tactic: 执行
+  - name: 原生 API
+    id: T1106
+    tactic: 执行
+
+  # ---- 持久化 (TA0003) ----
+  - name: 注册表运行键
+    id: T1547.001
+    tactic: 持久化
+  - name: 计划任务
+    id: T1053.005
+    tactic: 持久化
+  - name: 创建账号
+    id: T1136
+    tactic: 持久化
+  - name: 启动文件夹
+    id: T1547.001
+    tactic: 持久化
+  - name: Boot or Logon Autostart Execution
+    id: T1547
+    tactic: 持久化
+  - name: 服务创建
+    id: T1543.003
+    tactic: 持久化
+  - name: 计划任务
+    id: T1053.005
+    tactic: 持久化
+  - name: 有效账号
+    id: T1078
+    tactic: 持久化
+  - name: 外部远程服务
+    id: T1133
+    tactic: 持久化
+  - name: Office 应用启动
+    id: T1137
+    tactic: 持久化
+
+  # ---- 权限提升 (TA0004) ----
+  - name: 令牌窃取
+    id: T1134
+    tactic: 权限提升
+  - name: 进程注入
+    id: T1055
+    tactic: 权限提升
+  - name: 绕过 UAC
+    id: T1548.002
+    tactic: 权限提升
+  - name: 利用提权漏洞
+    id: T1068
+    tactic: 权限提升
+  - name: Sudo 和 Caching
+    id: T1548.003
+    tactic: 权限提升
+  - name: 域策略修改
+    id: T1484
+    tactic: 权限提升
+  - name: 启动或登录自动启动执行
+    id: T1547
+    tactic: 权限提升
+
+  # ---- 防御规避 (TA0005) ----
+  - name: 混淆文件或信息
+    id: T1027
+    tactic: 防御规避
+  - name: 程序加壳
+    id: T1027.002
+    tactic: 防御规避
+  - name: 软件打包
+    id: T1027.001
+    tactic: 防御规避
+  - name: 文件删除
+    id: T1070.004
+    tactic: 防御规避
+  - name: 安全软件禁用
+    id: T1562.001
+    tactic: 防御规避
+  - name: 日志清理
+    id: T1070
+    tactic: 防御规避
+  - name: 伪装
+    id: T1036
+    tactic: 防御规避
+  - name: 进程注入
+    id: T1055
+    tactic: 防御规避
+  - name: 时间戳伪造
+    id: T1070.006
+    tactic: 防御规避
+  - name: 虚拟机/沙箱检测
+    id: T1497
+    tactic: 防御规避
+  - name: 禁用或修改系统防火墙
+    id: T1562.004
+    tactic: 防御规避
+  - name: 禁用或修改工具
+    id: T1562.001
+    tactic: 防御规避
+  - name: 域名前置
+    id: T1090.004
+    tactic: 防御规避
+  - name: 代理
+    id: T1090
+    tactic: 防御规避
+  - name: 域生成算法
+    id: T1568.002
+    tactic: 防御规避
+
+  # ---- 凭证访问 (TA0006) ----
+  - name: 凭据转储
+    id: T1003
+    tactic: 凭证访问
+  - name: LSASS 内存
+    id: T1003.001
+    tactic: 凭证访问
+  - name: NTDS 提取
+    id: T1003.003
+    tactic: 凭证访问
+  - name: 暴力破解
+    id: T1110
+    tactic: 凭证访问
+  - name: 密码喷洒
+    id: T1110.003
+    tactic: 凭证访问
+  - name: 操作系统凭据转储
+    id: T1003
+    tactic: 凭证访问
+  - name: 密钥记录
+    id: T1056.001
+    tactic: 凭证访问
+  - name: 窃取 Web 会话 Cookie
+    id: T1539
+    tactic: 凭证访问
+  - name: 不安全的凭据存储
+    id: T1552
+    tactic: 凭证访问
+
+  # ---- 发现 (TA0007) ----
+  - name: 系统信息发现
+    id: T1082
+    tactic: 发现
+  - name: 网络拓扑发现
+    id: T1016
+    tactic: 发现
+  - name: 账户发现
+    id: T1087
+    tactic: 发现
+  - name: 文件与目录发现
+    id: T1083
+    tactic: 发现
+  - name: 进程发现
+    id: T1057
+    tactic: 发现
+  - name: 系统网络配置发现
+    id: T1016
+    tactic: 发现
+  - name: 远程系统发现
+    id: T1018
+    tactic: 发现
+  - name: 软件发现
+    id: T1518
+    tactic: 发现
+  - name: 外设发现
+    id: T1120
+    tactic: 发现
+  - name: 域信任发现
+    id: T1482
+    tactic: 发现
+
+  # ---- 横向移动 (TA0008) ----
+  - name: 远程服务利用
+    id: T1210
+    tactic: 横向移动
+  - name: 远程桌面协议
+    id: T1021.001
+    tactic: 横向移动
+  - name: SMB/Windows 管理共享
+    id: T1021.002
+    tactic: 横向移动
+  - name: 分布式组件对象模型
+    id: T1021.003
+    tactic: 横向移动
+  - name: Pass the Hash
+    id: T1550.002
+    tactic: 横向移动
+  - name: Pass the Ticket
+    id: T1550.003
+    tactic: 横向移动
+  - name: 内部鱼叉式钓鱼
+    id: T1534
+    tactic: 横向移动
+  - name: 远程服务会话劫持
+    id: T1563
+    tactic: 横向移动
+  - name: 复制通过远程服务
+    id: T1021
+    tactic: 横向移动
+  - name: 软件部署工具
+    id: T1072
+    tactic: 横向移动
+
+  # ---- 收集 (TA0009) ----
+  - name: 剪贴板数据
+    id: T1115
+    tactic: 收集
+  - name: 本地数据暂存
+    id: T1074
+    tactic: 收集
+  - name: 屏幕截图
+    id: T1113
+    tactic: 收集
+  - name: 邮件收集
+    id: T1114
+    tactic: 收集
+  - name: 键盘记录
+    id: T1056
+    tactic: 收集
+  - name: 浏览器数据
+    id: T1217
+    tactic: 收集
+  - name: 归档收集数据
+    id: T1560
+    tactic: 收集
+
+  # ---- 命令与控制 (TA0011) ----
+  - name: 应用层协议
+    id: T1071
+    tactic: 命令与控制
+  - name: Web 协议
+    id: T1071.001
+    tactic: 命令与控制
+  - name: DNS
+    id: T1071.004
+    tactic: 命令与控制
+  - name: 非标准端口
+    id: T1571
+    tactic: 命令与控制
+  - name: 加密通道
+    id: T1573
+    tactic: 命令与控制
+  - name: 入口工具传输
+    id: T1105
+    tactic: 命令与控制
+  - name: 代理
+    id: T1090
+    tactic: 命令与控制
+  - name: 多跳代理
+    id: T1090.003
+    tactic: 命令与控制
+  - name: 远程访问软件
+    id: T1219
+    tactic: 命令与控制
+  - name: 数据编码
+    id: T1132
+    tactic: 命令与控制
+  - name: 数据混淆
+    id: T1001
+    tactic: 命令与控制
+  - name: 域生成算法
+    id: T1568.002
+    tactic: 命令与控制
+
+  # ---- 数据渗出 (TA0010) ----
+  - name: 通过 C2 通道渗出
+    id: T1041
+    tactic: 数据渗出
+  - name: 通过 Web 服务渗出
+    id: T1567
+    tactic: 数据渗出
+  - name: 通过备用协议渗出
+    id: T1048
+    tactic: 数据渗出
+  - name: 数据传输大小限制
+    id: T1030
+    tactic: 数据渗出
+  - name: 计划传输
+    id: T1029
+    tactic: 数据渗出
+
+  # ---- 影响 (TA0040) ----
+  - name: 数据加密
+    id: T1486
+    tactic: 影响
+  - name: 磁盘擦除
+    id: T1561
+    tactic: 影响
+  - name: 数据销毁
+    id: T1485
+    tactic: 影响
+  - name: 服务停止
+    id: T1489
+    tactic: 影响
+  - name: 系统关机/重启
+    id: T1529
+    tactic: 影响
+  - name: 擦除恢复能力
+    id: T1490
+    tactic: 影响
+  - name: 污损
+    id: T1491
+    tactic: 影响
