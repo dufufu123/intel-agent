@@ -1,0 +1,12 @@
+# 外部平台 API Key 配置
+# 将此文件复制为 application.yaml 并填入真实 Key
+# application.yaml 已被 .gitignore 排除，不会提交到仓库
+
+deepseek:
+  api_key: ""
+
+virustotal:
+  api_key: ""
+
+otx:
+  api_key: ""

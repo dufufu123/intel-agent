@@ -78,7 +78,7 @@ ACTOR_DETAIL_SYSTEM = """你是一个威胁情报分析师。请从报告中提�
 
 IOC 要求：
 - value: IOC 值，如 "192.168.1.1"、"d41d8cd98f00b204e9800998ecf8427e、"c2.com""
-- type: IOC 类型，必须为以下之一：IP/Domain/Email/URL/Hash/CVE/TTP
+- type: IOC 类型，必须为以下之一：IP/Domain/Email/URL/Hash/CVE/TTP 其中Hash必须为哈希值
 - threat_level: 威胁等级，必须为以下之一：恶意, 可疑, 未知, 白名单。必填，无法确定时填"未知"
 - tags: 附加标签列表，如 ["C2", "Downloader", "Phishing", "Dropper"]
 - context: 该 IOC 在报告中的上下文说明，如果上下文无意义可以不添加。
@@ -86,7 +86,8 @@ IOC 要求：
 注意：
 - 只提取报告中明确提到的、与 {actor_name} 关联的 IOC
 - 不要凭空编造
-- 如果报告中该攻击者没有明确 IOC，返回空列表"""
+- 如果报告中该攻击者没有明确 IOC，返回空列表
+- 如果提到使用某些开源工具或常规网站作为跳板，则该类开源工具和url、domain为白名单"""
 
 ACTOR_DETAIL_HUMAN = "报告内容：\n{report_text}\n\n要提取的攻击者：{actor_name}"
 
