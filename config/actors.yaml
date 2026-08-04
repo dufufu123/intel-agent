@@ -2,67 +2,3691 @@
 # 运营团队可直接修改此文件，系统通过热加载自动识别变更，无需重启
 version: 1
 actors:
-  - id: apt28
-    name: APT28
-    aliases: [Fancy Bear, Sofacy, Pawn Storm, Strontium, Forest Blizzard, Sednit]
+  - id: uac-0184
+    name: UAC-0184
+    aliases:
+      - Hive0156
     theme: APT
-
-  - id: apt29
-    name: APT29
-    aliases: [Cozy Bear, The Dukes, Midnight Blizzard, Nobelium, UNC2452]
+  - id: paper-werewolf
+    name: Paper Werewolf
+    aliases:
+      - GOFFEE
     theme: APT
-
+  - id: head-mare
+    name: Head Mare
+    aliases: []
+    theme: APT
+  - id: dust-specter
+    name: Dust Specter
+    aliases: []
+    theme: APT
+  - id: lian-ju-sha
+    name: 链锯鲨
+    aliases:
+      - Actor240820
+      - ChainedShark
+    theme: APT
+  - id: jin-yan-gou
+    name: 金眼狗
+    aliases:
+      - DragonBreath
+      - APT-Q-27
+    theme: APT
+  - id: cybervolk
+    name: CyberVolk
+    aliases:
+      - GLORIAMIST India
+      - gloria mist india
+      - gloria mist
+      - Solntsevskaya Bratva
+    theme: APT
+  - id: uat-8837
+    name: UAT-8837
+    aliases: []
+    theme: APT
+  - id: arcane-werewolf
+    name: Arcane Werewolf
+    aliases:
+      - Mythic Likho
+    theme: APT
+  - id: big-panda
+    name: Big Panda
+    aliases: []
+    theme: APT
+  - id: rudepanda
+    name: RudePanda
+    aliases:
+      - REF3927
+    theme: APT
+  - id: ink-dragon
+    name: Ink Dragon
+    aliases:
+      - 墨龙
+      - 地球阿卢克斯
+      - 宝石虫
+      - REF7707
+      - CL-STA-0049
+    theme: APT
+  - id: larva-25012
+    name: Larva?25012
+    aliases: []
+    theme: APT
+  - id: cl-sta-1087
+    name: CL?STA?1087
+    aliases: []
+    theme: APT
+  - id: red-menshen
+    name: Red Menshen
+    aliases:
+      - 红门申
+      - Earth Bluecrow
+      - Red Dev 18
+    theme: APT
+  - id: hafnium
+    name: Hafnium
+    aliases:
+      - Silk Typhoon
+      - Red Dev 13
+      - HAFNIUM
+    theme: APT
+  - id: apt32
+    name: APT32
+    aliases:
+      - 海莲花
+      - OceanLotus Group
+      - Ocean Lotus
+      - OceanLotus
+      - Cobalt Kitty
+      - APT-C-00
+      - SeaLotus
+      - Sea Lotus
+      - APT-32
+      - APT 32
+      - Ocean Buffalo
+      - POND LOACH
+      - TIN WOODLAWN
+    theme: APT
+  - id: unc6692
+    name: UNC6692
+    aliases: []
+    theme: APT
+  - id: phantomcore
+    name: PhantomCore
+    aliases:
+      - Fairy Trickster
+      - Head Mare
+      - Rainbow Hyena
+      - UNG0901
+    theme: APT
+  - id: uac-0247
+    name: UAC-0247
+    aliases: []
+    theme: APT
+  - id: lofygang
+    name: LofyGang
+    aliases: []
+    theme: APT
+  - id: storm-1175
+    name: Storm-1175
+    aliases: []
+    theme: APT
+  - id: uat-10608
+    name: UAT-10608
+    aliases: []
+    theme: APT
+  - id: apt37
+    name: APT37
+    aliases:
+      - APT 37
+      - Group 123
+      - Group123
+      - Starcruft
+      - Reaper
+      - Reaper Group
+      - Red Eyes
+      - Ricochet Chollima
+      - Operation Daybreak
+      - Operation Erebus
+      - Venus 121
+      - ScarCruft
+      - APT-C-28
+    theme: APT
+  - id: apt-29
+    name: APT 29
+    aliases:
+      - Dukes
+      - Group 100
+      - Cozy Duke
+      - CozyDuke
+      - EuroAPT
+      - CozyBear
+      - CozyCar
+      - Cozer
+      - Office Monkeys
+      - OfficeMonkeys
+      - APT29
+      - Cozy Bear
+      - The Dukes
+      - Minidionis
+      - SeaDuke
+      - Hammer Toss
+      - YTTRIUM
+      - Iron Hemlock
+      - Grizzly Steppe
+      - NobleBaron
+      - Dark Halo
+      - StellarParticle
+      - NOBELIUM
+      - UNC2452
+      - APT 29
+      - Yttrium
+      - CloudLook
+      - ATK 7
+      - ITG11
+      - SolarStorm
+      - SilverFish
+      - Nobelium
+      - Iron Ritual
+      - Cloaked Ursa
+      - BlueBravo
+      - Midnight Blizzard
+      - UNC3524
+      - Cranefly
+      - TEMP.Monkeys
+      - Blue Dev 5
+      - Solar Phoenix
+      - Cozybear
+      - TheDukes
+    theme: APT
+  - id: charming-kitten
+    name: Charming Kitten
+    aliases:
+      - Magic Hound
+      - APT 35
+      - Cobalt Illusion
+      - Cobalt Mirage
+      - Charming Kitten
+      - TEMP.Beanie
+      - Timberworm
+      - Tarh Andishan
+      - TA453
+      - Phosphorus
+      - TunnelVision
+      - UNC788
+      - Yellow Garuda
+      - Educated Manticore
+      - Mint Sandstorm
+      - Ballistic Bobcat
+      - CharmingCypress
+      - COBALT MIRAGE
+      - Ajax Security Team
+      - Operation Woolen Goldfish
+      - Operation Woolen-Goldfish
+      - Thamar Reservoir
+      - AjaxTM
+      - Rocket Kitten
+      - Flying Kitten
+      - Operation Saffron Rose
+      - SaffronRose
+      - Saffron Rose
+      - AjaxSecurityTeam
+      - Group 26
+      - Sayad
+      - APT35
+      - ITG18
+      - Newscaster
+      - Newscaster Team
+    theme: APT
+  - id: uat-10362
+    name: UAT-10362
+    aliases: []
+    theme: APT
+  - id: promethium
+    name: PROMETHIUM
+    aliases:
+      - StrongPity
+      - 蓝色魔眼
+    theme: APT
+  - id: ung0002
+    name: UNG0002
+    aliases: []
+    theme: APT
+  - id: sha-chong
+    name: 沙虫
+    aliases:
+      - Sandworm Team
+      - Black Energy
+      - BlackEnergy
+      - Quedagh
+      - Voodoo Bear
+      - TEMP.Noble
+      - Iron Viking
+      - Sandworm
+      - VOODOO BEAR
+      - BlackEnergy(Group)
+      - IRON VIKING
+      - ELECTRUM
+      - Telebots
+      - APT-C-13
+      - APT-44
+      - TeleBots
+    theme: APT
+  - id: teamspy-crew
+    name: TeamSpy Crew
+    aliases:
+      - TeamSpy
+      - Team Bear
+      - Berserk Bear
+      - Anger Bear
+      - IRON LYRIC
+      - SIG39
+      - Dragonfly 2.0
+      - IRON LIBERTY
+      - Dragonfly2
+      - Berserker Bear
+      - DYMALLOY
+      - Dymalloy
+    theme: APT
+  - id: pinchy-spider
+    name: Pinchy Spider
+    aliases:
+      - Gold Southfield
+      - Gold Garden
+      - PINCHY SPIDER
+      - GOLD GARDEN
+      - Pinchy Spider
+      - GOLD SOUTHFIELD
+    theme: APT
+  - id: nomad-panda
+    name: Nomad Panda
+    aliases:
+      - RedFoxtrot
+      - TEMP.Trident
+      - Moshen Dragon
+      - Nomad Panda
+    theme: APT
+  - id: rocke
+    name: Rocke
+    aliases:
+      - Iron Group
+      - Aged Libra
+      - Iron Cyber Group
+      - Rocke
+    theme: APT
+  - id: huang-jin-diao
+    name: 黄金雕
+    aliases:
+      - APT-C-34
+      - Golden Falcon
+    theme: APT
+  - id: apt31
+    name: APT31
+    aliases:
+      - ZIRCONIUM
+      - JUDGMENT PANDA
+      - BRONZE VINEWOOD
+      - Hurricane Panda
+      - Judgment Panda
+      - APT31
+      - Zirconium
+    theme: APT
+  - id: mofang
+    name: Mofang
+    aliases:
+      - Superman
+      - Bronze Walker
+      - Whitefly
+      - TEMP.Mimic
+      - ATK 83
+      - SectorM04
+      - mofang
+    theme: APT
+  - id: crazyevil
+    name: CrazyEvil
+    aliases: []
+    theme: APT
+  - id: taidoor
+    name: Taidoor
+    aliases:
+      - Taidoor
+      - Budminer
+      - Earth Aughisky
+      - Budminer cyberespionage group
+    theme: APT
+  - id: du-ci
+    name: 毒刺
+    aliases:
+      - APT-C-31
+      - Operation Poison Needles
+    theme: APT
+  - id: huang-jin-shu
+    name: 黄金鼠
+    aliases:
+      - APT-C-27
+      - GoldMouse
+      - Golden Rat
+      - ATK 80
+      - Golden RAT
+      - Goldmouse
+    theme: APT
+  - id: leviathan
+    name: Leviathan
+    aliases:
+      - TEMP.Periscope
+      - TEMP.Jumper
+      - APT 40
+      - APT40
+      - BRONZE MOHAWK
+      - GADOLINIUM
+      - Kryptonite Panda
+      - Mudcarp
+      - ATK 29
+      - ITG09
+      - TA423
+      - Red Ladon
+      - Gingham Typhoon
+      - ISLANDDREAMS
+    theme: APT
+  - id: radio-panda
+    name: Radio Panda
+    aliases:
+      - Shrouded Crossbow
+      - BlackTech
+      - Circuit Panda
+      - Palmerworm
+      - TEMP.Overboard
+      - T-APT-03
+      - Red Djinn
+      - Manga Taurus
+      - Earth Hundun
+      - Radio Panda
+      - HUAPI
+    theme: APT
+  - id: saintbear
+    name: SaintBear
+    aliases:
+      - DEV-0587
+      - FROZENVISTA
+      - Lorec53
+      - Nascent Ursa
+      - Nodaria
+      - Saint Bear
+      - Storm-0587
+      - TA471
+      - UAC-0056
+      - UNC2589
+      - SaintBear
+      - Ember Bear
+      - 洛瑞熊
+      - lorec53
+    theme: APT
+  - id: tonto-team
+    name: Tonto Team
+    aliases:
+      - Tonto Team
+      - HeartBeat
+      - Karma Panda
+      - CactusPete
+      - Bronze Huntley
+      - Earth Akhlut
+      - LoneRanger
+      - TAG-74
+      - BRONZE HUNTLEY
+    theme: APT
+  - id: volatile-cedar
+    name: Volatile Cedar
+    aliases:
+      - Reuse team
+      - Malware reusers
+      - Dancing Salome
+      - DeftTorero
+      - Lebanese Cedar
+    theme: APT
+  - id: ke-xue-ying
+    name: 渴血鹰
+    aliases:
+      - AtlasCross
+    theme: APT
+  - id: shuang-wei-xie
+    name: 双尾蝎
+    aliases:
+      - 双尾蝎
+      - AridViper
+      - Desert Falcon
+      - Arid Viper
+      - APT-C-23
+      - Micropsia
+      - Frozen Cell
+    theme: APT
+  - id: suo-lun-zhi-yan
+    name: 索伦之眼
+    aliases:
+      - ProjectSauron
+      - Strider
+      - Sauron
+      - Project Sauron
+      - APT-C-16
+    theme: APT
   - id: apt41
     name: APT41
-    aliases: [Winnti, Barium, Wicked Panda, Double Dragon]
+    aliases:
+      - Wicked Panda
+      - Brass Typhoon
+      - BARIUM
+      - Winnti Umbrella
+      - Axiom
+      - Winnti Group
+      - APT41
+      - APT 41
+      - Group72
+      - Group 72
+      - Blackfly
+      - LEAD
+      - WICKED SPIDER
+      - WICKED PANDA
+      - BRONZE ATLAS
+      - BRONZE EXPORT
+      - Red Kelpie
+      - SparklingGoblin
+      - Double Dragon
+      - TG-2633
+      - Atlas
+      - Earth Baku
+      - Grayfly
+      - Redfly
+      - Bronze Atlas
     theme: APT
-
+  - id: twisted-panda
+    name: Twisted Panda
+    aliases: []
+    theme: APT
+  - id: uac-0050
+    name: UAC-0050
+    aliases:
+      - Fire Cells Group
+      - Mercenary Akula
+      - Fire Cells Group
+    theme: APT
+  - id: uat-9686
+    name: UAT-9686
+    aliases: []
+    theme: APT
+  - id: gopherwhisper
+    name: GopherWhisper
+    aliases: []
+    theme: APT
+  - id: unc961
+    name: UNC961
+    aliases:
+      - UNC961
+      - Gold Melody
+      - Prophet Spider
+      - PROPHET SPIDER
+    theme: APT
+  - id: jinx-0164
+    name: JINX-0164
+    aliases: []
+    theme: APT
+  - id: tou-ming-bu-luo
+    name: 透明部落
+    aliases:
+      - ProjectM
+      - APT 36
+      - Operation C-Major
+      - COPPER FIELDSTONE
+      - TMP.Lapis
+      - APT36
+      - APT-C-56
+      - Transparent Tribe
+      - C-Major
+      - Green Havildar
+      - Mythic Leopard
+      - Operation Transparent Tribe
+    theme: APT
+  - id: unc6748
+    name: UNC6748
+    aliases: []
+    theme: APT
+  - id: siribclone
+    name: SiribClone
+    aliases: []
+    theme: APT
+  - id: teampcp
+    name: TeamPCP
+    aliases:
+      - DeadCatx3
+      - PCPcat
+      - PersyPCP
+      - ShellForce
+    theme: APT
+  - id: uat-8302
+    name: UAT-8302
+    aliases: []
+    theme: APT
+  - id: greyvibe
+    name: GREYVIBE
+    aliases:
+      - GreyVibe
+    theme: APT
+  - id: unc1151
+    name: UNC1151
+    aliases:
+      - FrostyNeighbor
+      - Ghostwriter
+      - UAC-0057
+    theme: APT
+  - id: bitter
+    name: Bitter
+    aliases:
+      - 蔓灵花
+      - BITTER
+      - T-APT-17
+      - APT-C-08
+      - TA397
+    theme: APT
+  - id: ta4922
+    name: TA4922
+    aliases: []
+    theme: APT
+  - id: uat-10027
+    name: UAT-10027
+    aliases: []
+    theme: APT
+  - id: khmer-shadow
+    name: Khmer Shadow
+    aliases: []
+    theme: APT
+  - id: uac-0190
+    name: UAC-0190
+    aliases:
+      - Laundry Bear
+      - Void Blizzard
+    theme: APT
+  - id: rare-werewolf
+    name: Rare Werewolf
+    aliases:
+      - Librarian Ghouls
+    theme: APT
+  - id: forum-troll
+    name: Forum Troll
+    aliases: []
+    theme: APT
+  - id: armored-likho
+    name: Armored Likho
+    aliases:
+      - Eagle Werewolf
+    theme: APT
+  - id: 4bid
+    name: 4BID
+    aliases: []
+    theme: APT
+  - id: uat-7810
+    name: UAT-7810
+    aliases: []
+    theme: APT
+  - id: uac-0255
+    name: UAC-0255
+    aliases: []
+    theme: APT
+  - id: sloppylemming
+    name: SloppyLemming
+    aliases:
+      - Outrider Tiger
+      - Fishing Elephant
+    theme: APT
+  - id: tgr-sta-1030
+    name: TGR-STA-1030
+    aliases:
+      - UNC6619
+    theme: APT
+  - id: redkitten
+    name: RedKitten
+    aliases: []
+    theme: APT
+  - id: konni
+    name: Konni
+    aliases:
+      - KONNI
+    theme: APT
+  - id: boulder-bear
+    name: Boulder Bear
+    aliases: []
+    theme: APT
+  - id: confucius
+    name: Confucius
+    aliases:
+      - 孔夫子
+    theme: APT
+  - id: domestic-kitten
+    name: Domestic Kitten
+    aliases:
+      - APT-C-50
+    theme: APT
+  - id: cyberav3ngers
+    name: CyberAv3ngers
+    aliases:
+      - Storm-0784
+      - Bauxite
+      - Hydro Kitten
+      - UNC5691
+      - Dragos
+      - Mandiant
+    theme: APT
+  - id: wet-panda
+    name: Wet Panda
+    aliases:
+      - Red Chimera
+    theme: APT
+  - id: wei-lie-zhe
+    name: 伪猎者
+    aliases: []
+    theme: APT
+  - id: molerats
+    name: Molerats
+    aliases:
+      - 月光鼠
+      - Gaza Hackers Team
+      - Gaza cybergang
+      - Gaza Cybergang
+      - Operation Molerats
+      - Extreme Jackal
+      - Moonlight
+      - ALUMINUM SARATOGA
+      - 灵猫
+      - TA402
+      - Molerats
+      - Aluminum Saratoga
+      - ATK 89
+      - TAG-CT5
+    theme: APT
+  - id: lunar-spider
+    name: Lunar Spider
+    aliases:
+      - GOLD SWATHMORE
+      - TA551
+      - Shakthak
+      - LUNAR SPIDER
+      - Shathak
+      - GOLD CABIN
+      - Monster Libra
+    theme: APT
   - id: lazarus
-    name: Lazarus Group
-    aliases: [Lazarus, Hidden Cobra, APT38, Guardians of Peace, Zinc, Diamond Sleet]
+    name: lazarus
+    aliases:
+      - Operation DarkSeoul
+      - Dark Seoul
+      - Hidden Cobra
+      - Hastati Group
+      - Unit 121
+      - Bureau 121
+      - NewRomanic Cyber Army Team
+      - Group 77
+      - Labyrinth Chollima
+      - Operation Troy
+      - Operation GhostSecret
+      - Operation AppleJeus
+      - APT38
+      - APT 38
+      - Whois Hacking Team
+      - Zinc
+      - Appleworm
+      - Nickel Academy
+      - APT-C-26
+      - NICKEL GLADSTONE
+      - Lazarus Group
+      - HIDDEN COBRA
+      - Guardians of Peace
+      - NICKEL ACADEMY
+      - ZINC
+      - TEMP.Hermit
     theme: APT
-
-  - id: kim-sukki
-    name: Kimsuky
-    aliases: [Kimsuky, Black Banshee, Thallium, Velvet Chollima]
+  - id: pioneer-kitten
+    name: PIONEER KITTEN
+    aliases:
+      - PARISITE
+      - UNC757
+      - Fox Kitten
+      - PIONEER KITTEN
+      - Cobalt Foxglove
+      - Rubidium
+      - Lemon Sandstorm
+      - Parisite
     theme: APT
-
-  - id: conti
-    name: Conti
-    aliases: [Conti ransomware, Conti Ransomware]
-    theme: 恶意代码家族
-
-  - id: emotet
-    name: Emotet
-    aliases: [Heodo, Geodo]
-    theme: 恶意代码家族
-
-  - id: lockbit
-    name: LockBit
-    aliases: [LockBit ransomware, LockBit Ransomware, ABCD]
-    theme: 恶意代码家族
-
-  - id: darkgate
-    name: DarkGate
-    aliases: [DarkGate loader, DarkGate malware]
-    theme: 恶意代码家族
-
-  - id: cobalt-strike
-    name: Cobalt Strike
-    aliases: [Cobalt Strike beacon, CobaltStrike]
-    theme: 恶意代码家族
-
+  - id: silence-group
+    name: Silence group
+    aliases:
+      - Silence
+      - Silence APT group
+      - WHISPER SPIDER
+    theme: APT
+  - id: unc6508
+    name: UNC6508
+    aliases: []
+    theme: APT
+  - id: nettraveler
+    name: NetTraveler
+    aliases:
+      - APT 21
+      - APT21
+      - TravNet
+      - Hammer Panda
+      - TEMP.Zhenbao
+      - Zhenbao
+    theme: APT
+  - id: ta4563
+    name: TA4563
+    aliases:
+      - TA4563
+      - DeathStalker
+      - Evilnum
+    theme: APT
+  - id: stargazers-ghost-network
+    name: Stargazers Ghost Network
+    aliases: []
+    theme: APT
+  - id: static-tundra
+    name: Static Tundra
+    aliases: []
+    theme: APT
+  - id: storm-2755
+    name: Storm-2755
+    aliases: []
+    theme: APT
+  - id: the-shadow-brokers
+    name: The Shadow Brokers
+    aliases:
+      - The ShadowBrokers
+      - TSB
+      - Shadow Brokers
+      - ShadowBrokers
+    theme: APT
+  - id: utg-q-015
+    name: UTG-Q-015
+    aliases: []
+    theme: APT
+  - id: jin-chan
+    name: 金蝉
+    aliases: []
+    theme: APT
+  - id: turla
+    name: Turla
+    aliases:
+      - Turla Group
+      - Snake
+      - Venomous Bear
+      - VENOMOUS Bear
+      - Group 88
+      - Waterbug
+      - WRAITH
+      - Turla Team
+      - Uroburos
+      - Pfinet
+      - TAG-0530
+      - KRYPTON
+      - Hippo Team
+      - Pacifier APT
+      - Popeye
+      - SIG2
+      - SIG15
+      - SIG23
+      - Iron Hunter
+      - MAKERSMARK
+      - APT-C-29
+      - Belugasturgeon
+      - WhiteBear
+      - Krypton
+      - CTG-8875
+      - ATK 13
+      - ITG12
+      - UNC4210
+      - SUMMIT
+      - Secret Blizzard
+      - Pensive Ursa
+      - Blue Python
+      - Skipper
+      - White Bear
+      - Skipper Turla
+    theme: APT
+  - id: deathnote
+    name: DeathNote
+    aliases:
+      - 死亡笔记
+    theme: APT
+  - id: operation-poison-needles
+    name: Operation Poison Needles
+    aliases: []
+    theme: APT
+  - id: earth-baxia
+    name: Earth Baxia
+    aliases: []
+    theme: APT
+  - id: famoussparrow
+    name: FamousSparrow
+    aliases:
+      - FamousSparrow
+      - Earth Estries
+    theme: APT
+  - id: mr-rot13
+    name: Mr_Rot13
+    aliases: []
+    theme: APT
+  - id: inception
+    name: Inception
+    aliases:
+      - Inception Framework
+      - Cloud Atlas
+      - Oxygen
+      - ATK 116
+      - Blue Odin
+      - The Rocra
+      - Clean Ursa
+      - Red October
+    theme: APT
+  - id: drivesurge
+    name: DriveSurge
+    aliases: []
+    theme: APT
+  - id: unc6353
+    name: UNC6353
+    aliases: []
+    theme: APT
+  - id: cl-sta-1062
+    name: CL-STA-1062
+    aliases:
+      - UAT-7237
+    theme: APT
+  - id: tag-182
+    name: TAG-182
+    aliases: []
+    theme: APT
+  - id: cavern-manticore
+    name: Cavern Manticore
+    aliases: []
+    theme: APT
+  - id: predator-panda
+    name: Predator Panda
+    aliases: []
+    theme: APT
+  - id: ghost-jackal
+    name: Ghost Jackal
+    aliases: []
+    theme: APT
+  - id: passcv
+    name: PassCV
+    aliases:
+      - Blue Coat Systems
+    theme: APT
+  - id: snowglobe
+    name: SNOWGLOBE
+    aliases:
+      - Animal Farm
+      - Snowglobe
+      - SIG20
+      - ATK 8
+    theme: APT
   - id: mustang-panda
     name: Mustang Panda
-    aliases: [Mustang Panda, Red Delta, TA416]
+    aliases:
+      - HoneyMyte
+      - Red Lich
+      - TEMP.HEX
+      - TA416
+      - RedDelta
+      - LuminousMoth
+      - PKPLUG
+      - BRONZE PRESIDENT
+      - Mustang Panda
+      - Bronze President
+      - TEMP.Hex
+      - Earth Preta
+      - Camaro Dragon
+      - Stately Taurus
     theme: APT
-
-  - id: sidewinder
-    name: SideWinder
-    aliases: [SideWinder, Rattlesnake, T-APT-04]
+  - id: wellmess
+    name: WellMess
+    aliases:
+      - APT-C-42
+      - WellMess
+      - 魔鼠
     theme: APT
-
-  - id: sandworm
-    name: Sandworm
-    aliases: [Sandworm, BlackEnergy, Voodoo Bear, Iron Viking]
+  - id: vicious-panda
+    name: Vicious Panda
+    aliases:
+      - Bronze Dudley
+    theme: APT
+  - id: luoyu
+    name: LuoYu
+    aliases:
+      - 蠃鱼
+    theme: APT
+  - id: berberoka
+    name: BerBeroka
+    aliases: []
+    theme: APT
+  - id: the-gorgon-group
+    name: The Gorgon Group
+    aliases:
+      - Gorgon Group
+      - Subaat
+      - ATK 92
+      - TAG-CR5
+      - Pasty Draco
+    theme: APT
+  - id: careto
+    name: Careto
+    aliases:
+      - The Mask
+      - Mask
+      - Ugly Face
+    theme: APT
+  - id: microcin
+    name: Microcin
+    aliases:
+      - SixLittleMonkeys
+    theme: APT
+  - id: moneytaker
+    name: MoneyTaker
+    aliases: []
+    theme: APT
+  - id: naikon
+    name: Naikon
+    aliases:
+      - Override Panda
+      - Camerashy
+      - APT.Naikon
+      - Hellsing
+      - BRONZE GENEVA
+      - Lotus Panda
+      - ITG06
+      - Elise
+      - Naikon
+    theme: APT
+  - id: gold-blade
+    name: GOLD BLADE
+    aliases:
+      - RedCurl
+      - RedWolf
+      - Earth Kapre
+    theme: APT
+  - id: orangeworm
+    name: Orangeworm
+    aliases: []
+    theme: APT
+  - id: henbox
+    name: HenBox
+    aliases: []
+    theme: APT
+  - id: zoopark
+    name: ZooPark
+    aliases:
+      - 军刀狮
+      - APT-C-38
+      - SABER LION
+      - TG-2884
+      - COBALT JUNO
+      - ZooPark
+    theme: APT
+  - id: powerpool
+    name: PowerPool
+    aliases: []
+    theme: APT
+  - id: greyenergy
+    name: GreyEnergy
+    aliases: []
+    theme: APT
+  - id: blackgear
+    name: Blackgear
+    aliases:
+      - Topgear
+      - Comnie
+      - BLACKGEAR
+    theme: APT
+  - id: blackoasis
+    name: BlackOasis
+    aliases: []
+    theme: APT
+  - id: fin10
+    name: FIN10
+    aliases: []
+    theme: APT
+  - id: gui-lun-pan
+    name: 鬼轮盘
+    aliases: []
+    theme: APT
+  - id: foxy-panda
+    name: Foxy Panda
+    aliases: []
+    theme: APT
+  - id: shui-fen-chong
+    name: 水粉虫
+    aliases:
+      - pink
+    theme: APT
+  - id: group5
+    name: Group5
+    aliases: []
+    theme: APT
+  - id: shadow-network
+    name: Shadow Network
+    aliases: []
+    theme: APT
+  - id: slingshot
+    name: Slingshot
+    aliases: []
+    theme: APT
+  - id: ta428
+    name: TA428
+    aliases: []
+    theme: APT
+  - id: venom-spider
+    name: VENOM SPIDER
+    aliases:
+      - badbullzvenom
+      - Badbullz
+    theme: APT
+  - id: higaisa
+    name: Higaisa
+    aliases: []
+    theme: APT
+  - id: bad-magic
+    name: Bad magic
+    aliases: []
+    theme: APT
+  - id: armarat
+    name: ArmaRat
+    aliases:
+      - APT-C-33
+      - ArmaRat
+    theme: APT
+  - id: ren-mian-shi
+    name: 人面狮
+    aliases:
+      - APT-C-15
+    theme: APT
+  - id: teamtnt
+    name: TeamTNT
+    aliases:
+      - Adept Libra
+    theme: APT
+  - id: dangerouspassword
+    name: DangerousPassword
+    aliases:
+      - 危险密码
+    theme: APT
+  - id: montysthree
+    name: MontysThree
+    aliases:
+      - MontysThree
+    theme: APT
+  - id: iamtheking
+    name: IAmTheKing
+    aliases: []
+    theme: APT
+  - id: agrius
+    name: Agrius
+    aliases: []
+    theme: APT
+  - id: indigozebra-apt
+    name: IndigoZebra APT
+    aliases:
+      - IndigoZebra
+    theme: APT
+  - id: teng-yun-she
+    name: 腾云蛇
+    aliases:
+      - APT-C-61
+    theme: APT
+  - id: apt-c1
+    name: APT-C1
+    aliases: []
+    theme: APT
+  - id: chinaz
+    name: ChinaZ
+    aliases: []
+    theme: APT
+  - id: pysa
+    name: PYSA
+    aliases: []
+    theme: APT
+  - id: tallium
+    name: Tallium
+    aliases: []
+    theme: APT
+  - id: ta543
+    name: TA543
+    aliases:
+      - DEV-0324
+      - Sagrid
+      - Storm-0324
+    theme: APT
+  - id: jia-mian-qi-e
+    name: 假面企鹅
+    aliases: []
+    theme: APT
+  - id: unc215
+    name: UNC215
+    aliases: []
+    theme: APT
+  - id: aggah
+    name: Aggah
+    aliases: []
+    theme: APT
+  - id: bladehawk
+    name: BladeHawk
+    aliases: []
+    theme: APT
+  - id: san-bian
+    name: 三边
+    aliases: []
+    theme: APT
+  - id: cloudfall
+    name: CloudFall
+    aliases: []
+    theme: APT
+  - id: layover
+    name: Layover
+    aliases: []
+    theme: APT
+  - id: ni-ying-zu-zhi
+    name: 匿影组织
+    aliases: []
+    theme: APT
+  - id: tiltedtemple
+    name: TiltedTemple
+    aliases: []
+    theme: APT
+  - id: bluenoroff
+    name: BlueNoroff
+    aliases:
+      - Sapphire Sleet
+      - TA444
+      - Bluenoroff
+    theme: APT
+  - id: an-xiang
+    name: 暗象
+    aliases:
+      - DarkElephant
+    theme: APT
+  - id: dangeroussavanna
+    name: DangerousSavanna
+    aliases: []
+    theme: APT
+  - id: wip19
+    name: WIP19
+    aliases: []
+    theme: APT
+  - id: toddycat
+    name: ToddyCat
+    aliases: []
+    theme: APT
+  - id: uac-0132
+    name: UAC-0132
+    aliases: []
+    theme: APT
+  - id: li-ren-ying
+    name: 利刃鹰
+    aliases: []
+    theme: APT
+  - id: mklg
+    name: MKLG
+    aliases: []
+    theme: APT
+  - id: automated-libra
+    name: Automated Libra
+    aliases: []
+    theme: APT
+  - id: bluebottle
+    name: Bluebottle
+    aliases:
+      - 蓝瓶
+    theme: APT
+  - id: killnet
+    name: Killnet
+    aliases: []
+    theme: APT
+  - id: billbug
+    name: Billbug
+    aliases: []
+    theme: APT
+  - id: againstthewest
+    name: AgainstTheWest
+    aliases:
+      - ATW
+    theme: APT
+  - id: clasiopa
+    name: Clasiopa
+    aliases: []
+    theme: APT
+  - id: karakurt
+    name: Karakurt
+    aliases: []
+    theme: APT
+  - id: darkcasino
+    name: DarkCasino
+    aliases:
+      - Water Hydra
+    theme: APT
+  - id: insidious-taurus
+    name: Insidious Taurus
+    aliases:
+      - Insidious Taurus (aka Volt Typhoon)【APT】
+      - Bronze Silhouette
+      - Vanguard Panda
+      - Dev-0391
+    theme: APT
+  - id: shuang-yi-shu
+    name: 双异鼠
+    aliases:
+      - DoubleXorRat
+    theme: APT
+  - id: scattered-spider
+    name: Scattered Spider
+    aliases:
+      - 0ktapus
+      - DEV-0971
+      - Muddled Libra
+      - Octo Tempest
+      - Oktapus
+      - Scatter Swine
+      - Scattered Swine
+      - Storm-0971
+      - UNC3944
+    theme: APT
+  - id: lord-nemesis
+    name: Lord Nemesis
+    aliases:
+      - Nemesis Kitten
+      - DEV-0270
+      - Storm-0270
+    theme: APT
+  - id: earth-longzhi
+    name: Earth Longzhi
+    aliases:
+      - SnakeCharmer
+    theme: APT
+  - id: cloudsorcerer
+    name: CloudSorcerer
+    aliases: []
+    theme: APT
+  - id: redbeard
+    name: RedBeard
+    aliases: []
+    theme: APT
+  - id: stargazer-goblin
+    name: Stargazer Goblin
+    aliases: []
+    theme: APT
+  - id: white-tur
+    name: White Tur
+    aliases: []
+    theme: APT
+  - id: harvester
+    name: Harvester
+    aliases: []
+    theme: APT
+  - id: lifting-zmiy
+    name: Lifting Zmiy
+    aliases: []
+    theme: APT
+  - id: apt-c-68
+    name: APT-C-68
+    aliases:
+      - 寄生虫
+    theme: APT
+  - id: lan-bao-gu
+    name: 蓝宝菇
+    aliases:
+      - Sapphire Mushroom
+      - Blue Mushroom
+      - NuclearCrisis
+      - APT-C-12
+    theme: APT
+  - id: uac-0006
+    name: UAC-0006
+    aliases: []
+    theme: APT
+  - id: water-makara
+    name: Water Makara
+    aliases: []
+    theme: APT
+  - id: unc4221
+    name: UNC4221
+    aliases:
+      - UAC-0185
+    theme: APT
+  - id: ta2726
+    name: TA2726
+    aliases: []
+    theme: APT
+  - id: storm-1865
+    name: Storm-1865
+    aliases: []
+    theme: APT
+  - id: uat-5918
+    name: UAT-5918
+    aliases: []
+    theme: APT
+  - id: swan-vector
+    name: Swan Vector
+    aliases: []
+    theme: APT
+  - id: storm-0408
+    name: Storm-0408
+    aliases: []
+    theme: APT
+  - id: apt-16
+    name: APT 16
+    aliases:
+      - APT16
+      - SVCMONDR
+    theme: APT
+  - id: andromeda-spider
+    name: Andromeda Spider
+    aliases:
+      - ANDROMEDA SPIDER
+    theme: APT
+  - id: ratpak-spider
+    name: Ratpak Spider
+    aliases: []
+    theme: APT
+  - id: wizard-spider
+    name: Wizard Spider
+    aliases:
+      - TEMP.MixMaster
+      - WIZARD SPIDER
+      - UNC1878
+      - Grim Spider
+      - FIN12
+      - GRIM SPIDER
+      - GOLD ULRICK
+      - Wizard Spider
+    theme: APT
+  - id: guru-spider
+    name: Guru Spider
+    aliases: []
+    theme: APT
+  - id: salty-spider
+    name: Salty Spider
+    aliases:
+      - SALTY SPIDER
+    theme: APT
+  - id: apt-6
+    name: APT 6
+    aliases:
+      - 1.php Group
+      - APT6
+    theme: APT
+  - id: apt-3102
+    name: APT.3102
+    aliases: []
+    theme: APT
+  - id: aslan-neferler-tim
+    name: Aslan Neferler Tim
+    aliases:
+      - Lion Soldiers Team
+      - Phantom Turk
+    theme: APT
+  - id: beijing-group
+    name: Beijing Group
+    aliases:
+      - Sneaky Panda
+      - Elderwood
+      - Elderwood Gang
+      - SIG22
+    theme: APT
+  - id: blue-termite
+    name: Blue Termite
+    aliases:
+      - Cloudy Omega
+      - Emdivi
+    theme: APT
+  - id: chafer
+    name: Chafer
+    aliases:
+      - APT 39
+      - Remix Kitten
+      - Cobalt Hickman
+      - TA454
+      - ITG07
+      - Radio Serpens
+      - APT39
+      - Chafer
+      - REMIX KITTEN
+      - COBALT HICKMAN
+    theme: APT
+  - id: clever-kitten
+    name: Clever Kitten
+    aliases:
+      - Group 41
+    theme: APT
+  - id: cyber-berkut
+    name: Cyber Berkut
+    aliases:
+      - Kiberberkut
+    theme: APT
+  - id: deadeye-jackal
+    name: Deadeye Jackal
+    aliases:
+      - SyrianElectronicArmy
+      - SEA
+      - TAG-CT2
+      - Syria Malware Team
+      - ATK 196
+    theme: APT
+  - id: electric-panda
+    name: Electric Panda
+    aliases:
+      - BRONZE HIGHLAND和Daggerfly
+    theme: APT
+  - id: dragonfly
+    name: Dragonfly
+    aliases:
+      - Crouching Yeti
+      - Group 24
+      - Havex
+      - CrouchingYeti
+      - Koala Team
+      - IRON LIBERTY
+      - Energetic Bear
+      - TG-4192
+    theme: APT
+  - id: gamaredon
+    name: Gamaredon
+    aliases:
+      - APT-C-53
+      - Primitive Bear
+      - Gamaredon Group
+      - Shuckworm
+      - ACTINIUM
+      - Armageddon
+    theme: APT
+  - id: ice-fog
+    name: Ice Fog
+    aliases:
+      - IceFog
+      - Dagger Panda
+      - Trident
+      - ATK 23
+      - Red Wendigo
+    theme: APT
+  - id: aptjc-ny-001
+    name: APTJC-NY-001
+    aliases: []
+    theme: APT
+  - id: mana-team
+    name: Mana Team
+    aliases: []
+    theme: APT
+  - id: night-dragon
+    name: Night Dragon
+    aliases: []
+    theme: APT
+  - id: nitro
+    name: Nitro
+    aliases:
+      - Covert Grove
+    theme: APT
+  - id: oniondog
+    name: OnionDog
+    aliases: []
+    theme: APT
+  - id: packrat
+    name: Packrat
+    aliases: []
+    theme: APT
+  - id: pizzo-spider
+    name: Pizzo Spider
+    aliases:
+      - DD4BC
+      - Ambiorx
+    theme: APT
+  - id: putter-panda
+    name: Putter Panda
+    aliases:
+      - APT 2
+      - APT2
+      - Group 36
+      - APT-2
+      - MSUpdater
+      - 4HCrew
+      - SULPHUR
+      - SearchFire
+      - TG-6952
+    theme: APT
+  - id: roaming-tiger
+    name: Roaming Tiger
+    aliases:
+      - BRONZE WOODLAND
+      - Rotten Tomato
+      - Roaming Tiger
+      - CTG-7273
+    theme: APT
+  - id: du-zhen
+    name: 毒针
+    aliases: []
+    theme: APT
+  - id: silverterrier
+    name: SilverTerrier
+    aliases: []
+    theme: APT
+  - id: sima
+    name: Sima
+    aliases: []
+    theme: APT
+  - id: andariel
+    name: Andariel
+    aliases:
+      - OperationTroy
+      - Guardian of Peace
+      - GOP
+      - WHOis Team
+      - Silent Chollima
+      - Onyx Sleet
+      - PLUTIONIUM
+      - Andariel
+      - Jumpy Pisces
+      - Hidden Cobra
+    theme: APT
+  - id: sowbug
+    name: Sowbug
+    aliases: []
+    theme: APT
+  - id: ta530
+    name: TA530
+    aliases: []
+    theme: APT
+  - id: terbium
+    name: TERBIUM
+    aliases: []
+    theme: APT
+  - id: teamxrat
+    name: TeamXRat
+    aliases:
+      - CorporacaoXRat
+      - CorporationXRat
+    theme: APT
+  - id: temper-panda
+    name: Temper Panda
+    aliases:
+      - Admin338
+      - Team338
+      - MAGNESIUM
+      - admin@338
+    theme: APT
+  - id: ups
+    name: UPS
+    aliases:
+      - Gothic Panda
+      - TG-0110
+      - APT 3
+      - Group 6
+      - UPS Team
+      - APT3
+      - Buckeye
+      - Boyusec
+      - BORON
+      - BRONZE MAYFAIR
+      - Red Sylvan
+    theme: APT
+  - id: union-panda
+    name: Union Panda
+    aliases: []
+    theme: APT
+  - id: ayy-ld-z-tim
+    name: Ayy?ld?z Tim
+    aliases:
+      - Crescent and Star
+    theme: APT
+  - id: allanite
+    name: ALLANITE
+    aliases:
+      - Palmetto Fusion
+      - Allanite
+    theme: APT
+  - id: the-big-bang
+    name: The Big Bang
+    aliases: []
+    theme: APT
+  - id: redalpha
+    name: RedAlpha
+    aliases:
+      - RedAlpha
+      - DeepCliff
+      - Red Dev 3
+    theme: APT
+  - id: bahamut
+    name: Bahamut
+    aliases: []
+    theme: APT
+  - id: operation-bugdrop
+    name: Operation BugDrop
+    aliases: []
+    theme: APT
+  - id: unnamed-actor
+    name: Unnamed Actor
+    aliases: []
+    theme: APT
+  - id: singing-spider
+    name: Singing Spider
+    aliases: []
+    theme: APT
+  - id: dragonrank
+    name: DragonRank
+    aliases: []
+    theme: APT
+  - id: hunters-international
+    name: Hunters International
+    aliases: []
+    theme: APT
+  - id: dnspionage
+    name: DNSpionage
+    aliases:
+      - COBALT EDGEWATER
+    theme: APT
+  - id: darkvishnya
+    name: DarkVishnya
+    aliases: []
+    theme: APT
+  - id: ta505
+    name: TA505
+    aliases:
+      - SectorJ04 Group
+      - GRACEFUL SPIDER
+      - GOLD TAHOE
+      - Hive0065
+      - Spandex Tempest
+      - CHIMBORAZO
+      - Gold Evergreen
+      - TEMP.Warlock
+      - ATK 103
+      - GOLD EVERGREEN
+      - TA505
+      - Graceful Spider
+      - Gold Tahoe
+      - SectorJ04
+      - Chimborazo
+      - ATK103
+      - Dudear
+      - G0092
+    theme: APT
+  - id: gc02
+    name: GC02
+    aliases:
+      - Badbullz
+      - Golden Chickens
+      - Golden Chickens 02
+      - Golden Chickens02
+      - VENOM SPIDER
+      - Venom Spider
+      - badbullzvenom
+    theme: APT
+  - id: black-basta
+    name: Black Basta
+    aliases: []
+    theme: APT
+  - id: desertfalcons
+    name: DesertFalcons
+    aliases: []
+    theme: APT
+  - id: stardust-chollima
+    name: STARDUST CHOLLIMA
+    aliases:
+      - APT 38
+      - Stardust Chollima
+      - CTG-6459
+      - Nickel Gladstone
+      - TEMP.Hermit
+      - T-APT-15
+      - ATK 117
+      - Black Alicanto
+      - Copernicium
+      - TAG-71
+    theme: APT
+  - id: dianxun
+    name: Dianxun
+    aliases: []
+    theme: APT
+  - id: boss-spider
+    name: Boss Spider
+    aliases:
+      - GOLD LOWELL
+      - Boss Spider
+    theme: APT
+  - id: tiny-spider
+    name: Tiny Spider
+    aliases: []
+    theme: APT
+  - id: sandcat
+    name: SandCat
+    aliases:
+      - APT-C-32
+    theme: APT
+  - id: operation-shadowhammer
+    name: Operation ShadowHammer
+    aliases: []
+    theme: APT
+  - id: uac-0173
+    name: UAC-0173
+    aliases: []
+    theme: APT
+  - id: ghostnet
+    name: GhostNet
+    aliases:
+      - Snooping Dragon
+    theme: APT
+  - id: unc1069
+    name: UNC1069
+    aliases:
+      - CryptoCore
+      - MASAN
+    theme: APT
+  - id: lucky-cat
+    name: Lucky Cat
+    aliases:
+      - TA413
+      - White Dev 9
+    theme: APT
+  - id: rtm
+    name: RTM
+    aliases: []
+    theme: APT
+  - id: windshift
+    name: WindShift
+    aliases: []
+    theme: APT
+  - id: hacking-team
+    name: Hacking Team
+    aliases: []
+    theme: APT
+  - id: ourmine
+    name: OurMine
+    aliases:
+      - OurMine
+      - ATK 128
+      - TAG-HA10
+    theme: APT
+  - id: vault-7-8
+    name: '[Vault 7/8]'
+    aliases: []
+    theme: APT
+  - id: viceleaker
+    name: ViceLeaker
+    aliases: []
+    theme: APT
+  - id: sweed
+    name: SWEED
+    aliases: []
+    theme: APT
+  - id: xiang-wei-she
+    name: 响尾蛇
+    aliases:
+      - Rattlesnake
+      - Sidewinder
+      - SideWinder
+      - APT-C-24
+      - T-APT-04
+      - APT-C-17
+      - Hardcore Nationalist
+      - HN2
+      - APT-Q-39
+      - BabyElephant
+      - GroupA21
+    theme: APT
+  - id: operation-wocao
+    name: Operation Wocao
+    aliases: []
+    theme: APT
+  - id: attor
+    name: Attor
+    aliases: []
+    theme: APT
+  - id: invisimole
+    name: InvisiMole
+    aliases:
+      - UAC-0035
+    theme: APT
+  - id: doppel-spider
+    name: DOPPEL SPIDER
+    aliases:
+      - Gold Heron
+      - Grief Group
+    theme: APT
+  - id: narwhal-spider
+    name: NARWHAL SPIDER
+    aliases:
+      - GOLD ESSEX
+    theme: APT
+  - id: fin1
+    name: FIN1
+    aliases: []
+    theme: APT
+  - id: itaduke
+    name: ItaDuke
+    aliases:
+      - DarkUniverse
+      - SIG27
+    theme: APT
+  - id: luoxk
+    name: luoxk
+    aliases: []
+    theme: APT
+  - id: nazar
+    name: Nazar
+    aliases:
+      - SIG37
+    theme: APT
+  - id: operation-shadow-force
+    name: Operation Shadow Force
+    aliases: []
+    theme: APT
+  - id: cobalt-katana
+    name: COBALT KATANA
+    aliases:
+      - Hive0081 (IBM)
+      - SectorD01 (NHSC)
+      - xHunt campaign (Palo Alto)
+    theme: APT
+  - id: gallium
+    name: GALLIUM
+    aliases:
+      - Phantom Panda
+      - Granite Typhoon
+      - Alloy Taurus
+    theme: APT
+  - id: du-yun-teng
+    name: 毒云藤
+    aliases:
+      - 绿斑
+      - Green Spot
+      - APT-C-01
+    theme: APT
+  - id: pai-pai-xiong
+    name: 拍拍熊
+    aliases:
+      - APT-C-37
+    theme: APT
+  - id: storm-2561
+    name: storm?2561
+    aliases: []
+    theme: APT
+  - id: xdspy
+    name: XDSpy
+    aliases:
+      - XDSpy
+    theme: APT
+  - id: unc1945
+    name: UNC1945
+    aliases:
+      - LightBasin
+      - TH-239
+      - DecisiveArchitect
+    theme: APT
+  - id: apt28
+    name: APT28
+    aliases:
+      - 奇幻熊
+      - Sofacy
+      - SNAKEMACKEREL
+      - Swallowtail
+      - Group 74
+      - Sednit
+      - Pawn Storm
+      - Fancy Bear
+      - SRONTIUM
+      - Tsar Team
+      - Threat Group-4127
+      - TG-4127
+      - APT-C-20
+      - APT 28
+      - APT28
+      - PawnStorm
+      - TsarTeam
+      - Group-4127
+      - STRONTIUM
+      - TAG_0700
+      - IRON TWILIGHT
+      - SIG40
+      - Grizzly Steppe
+      - apt_sofacy
+    theme: APT
+  - id: f-apt
+    name: F_APT
+    aliases: []
+    theme: APT
+  - id: wang-ci-zu-zhi
+    name: 旺刺组织
+    aliases:
+      - APT-C-47
+    theme: APT
+  - id: lv-ransomware-group
+    name: LV  Ransomware Group
+    aliases: []
+    theme: APT
+  - id: hu-mu-jin
+    name: 虎木槿
+    aliases:
+      - APT-Q-11
+    theme: APT
+  - id: operation-signsight
+    name: Operation SignSight
+    aliases: []
+    theme: APT
+  - id: hei-mao
+    name: 黑猫
+    aliases: []
+    theme: APT
+  - id: winter-vivern
+    name: Winter Vivern
+    aliases:
+      - TA473
+      - UAC-0114
+    theme: APT
+  - id: gelsemium
+    name: Gelsemium
+    aliases: []
+    theme: APT
+  - id: operation-spalax
+    name: Operation Spalax
+    aliases: []
+    theme: APT
+  - id: aptjc-jr-001
+    name: APTJC-JR-001
+    aliases: []
+    theme: APT
+  - id: hades
+    name: Hades
+    aliases: []
+    theme: APT
+  - id: ferocious-kitten
+    name: Ferocious Kitten
+    aliases: []
+    theme: APT
+  - id: tag-22
+    name: TAG-22
+    aliases:
+      - RedHotel
+      - Fishmonger
+    theme: APT
+  - id: tor2mine
+    name: Tor2Mine
+    aliases: []
+    theme: APT
+  - id: vendetta
+    name: Vendetta
+    aliases:
+      - TA2719
+    theme: APT
+  - id: operation-wizardopium
+    name: Operation WizardOpium
+    aliases: []
+    theme: APT
+  - id: raticate
+    name: RATicate
+    aliases: []
+    theme: APT
+  - id: drbcontrol
+    name: DRBControl
+    aliases: []
+    theme: APT
+  - id: freakout-of-keksec
+    name: FreakOut of KekSec
+    aliases: []
+    theme: APT
+  - id: hei-que
+    name: 黑雀
+    aliases: []
+    theme: APT
+  - id: storm-cloud
+    name: Storm Cloud
+    aliases: []
+    theme: APT
+  - id: blue-mockingbird
+    name: Blue Mockingbird
+    aliases: []
+    theme: APT
+  - id: taskmasters
+    name: TaskMasters
+    aliases: []
+    theme: APT
+  - id: wolf-research
+    name: Wolf Research
+    aliases: []
+    theme: APT
+  - id: ta800
+    name: TA800
+    aliases: []
+    theme: APT
+  - id: ta577
+    name: TA577
+    aliases:
+      - Hive0118
+    theme: APT
+  - id: chamelgang-apt
+    name: ChamelGang APT
+    aliases: []
+    theme: APT
+  - id: atomsilo
+    name: AtomSilo
+    aliases: []
+    theme: APT
+  - id: lyceum
+    name: Lyceum
+    aliases:
+      - Hexane
+    theme: APT
+  - id: hive0107
+    name: Hive0107
+    aliases: []
+    theme: APT
+  - id: ta2722
+    name: TA2722
+    aliases:
+      - Balikbayan Foxes
+    theme: APT
+  - id: xe-group
+    name: XE Group
+    aliases: []
+    theme: APT
+  - id: wirte
+    name: WIRTE
+    aliases: []
+    theme: APT
+  - id: '8220'
+    name: '8220'
+    aliases: []
+    theme: APT
+  - id: apt-uyghurs-1
+    name: APT-Uyghurs-1
+    aliases: []
+    theme: APT
+  - id: antlion
+    name: Antlion
+    aliases:
+      - 蚁狮
+    theme: APT
+  - id: scarab
+    name: Scarab
+    aliases: []
+    theme: APT
+  - id: operation-dragon-castling
+    name: Operation Dragon Castling
+    aliases: []
+    theme: APT
+  - id: unc2447
+    name: UNC2447
+    aliases: []
+    theme: APT
+  - id: webworm
+    name: Webworm
+    aliases:
+      - Space Pirates
+      - Webworm
+      - Erudite Mogwai
+    theme: APT
+  - id: noname057-16
+    name: NoName057(16)
+    aliases: []
+    theme: APT
+  - id: clockword-spider
+    name: CLOCKWORD SPIDER
+    aliases: []
+    theme: APT
+  - id: larva-26002
+    name: Larva-26002
+    aliases: []
+    theme: APT
+  - id: phosphorous
+    name: Phosphorous
+    aliases: []
+    theme: APT
+  - id: unc6691
+    name: UNC6691
+    aliases: []
+    theme: APT
+  - id: eloquent-panda
+    name: Eloquent Panda
+    aliases: []
+    theme: APT
+  - id: oldfox
+    name: OldFox
+    aliases: []
+    theme: APT
+  - id: knotweed
+    name: KNOTWEED
+    aliases: []
+    theme: APT
+  - id: metador
+    name: Metador
+    aliases: []
+    theme: APT
+  - id: ta558
+    name: TA558
+    aliases: []
+    theme: APT
+  - id: apt42
+    name: APT42
+    aliases: []
+    theme: APT
+  - id: nuo-chong-shi
+    name: 诺崇狮
+    aliases:
+      - VajraEleph
+      - APT-Q-43
+    theme: APT
+  - id: kasablanka
+    name: Kasablanka
+    aliases: []
+    theme: APT
+  - id: saaiwc
+    name: Saaiwc
+    aliases:
+      - 暗石
+      - Saaiwc Group
+      - Dark Pink
+      - DarkPink
+    theme: APT
+  - id: utg-q-007
+    name: UTG-Q-007
+    aliases: []
+    theme: APT
+  - id: ku-lou-lang
+    name: 骷髅狼
+    aliases:
+      - APT-LY-1008
+      - Skeleton Wolf
+    theme: APT
+  - id: rong-jin-shu
+    name: 融金鼠
+    aliases:
+      - CoinRobber
+      - APT-C-1
+    theme: APT
+  - id: ducktail
+    name: Ducktail
+    aliases: []
+    theme: APT
+  - id: evasive-panda
+    name: Evasive Panda
+    aliases:
+      - BRONZE HIGHLAND
+      - Daggerfly
+    theme: APT
+  - id: yanbian-gang
+    name: Yanbian Gang
+    aliases: []
+    theme: APT
+  - id: ares
+    name: Ares
+    aliases: []
+    theme: APT
+  - id: redecho
+    name: RedEcho
+    aliases: []
+    theme: APT
+  - id: vice-society
+    name: Vice Society
+    aliases: []
+    theme: APT
+  - id: solar-spider
+    name: SOLAR SPIDER
+    aliases: []
+    theme: APT
+  - id: watchdog
+    name: WatchDog
+    aliases: []
+    theme: APT
+  - id: turkey-dog
+    name: Turkey Dog
+    aliases: []
+    theme: APT
+  - id: hydrojiin
+    name: HydroJiin
+    aliases: []
+    theme: APT
+  - id: cybercartel
+    name: CyberCartel
+    aliases: []
+    theme: APT
+  - id: lazyscripter
+    name: LazyScripter
+    aliases: []
+    theme: APT
+  - id: dustsquad
+    name: DustSquad
+    aliases: []
+    theme: APT
+  - id: unc2970
+    name: UNC2970
+    aliases: []
+    theme: APT
+  - id: lying-pigeon
+    name: Lying Pigeon
+    aliases: []
+    theme: APT
+  - id: cl-sta-240
+    name: CL-STA-240
+    aliases:
+      - Tenacious Pungsan
+      - Famous Chollima
+    theme: APT
+  - id: sath-mudafaa
+    name: Sath-? Müdafaa
+    aliases:
+      - Sath-? Müdafaa
+    theme: APT
+  - id: cl-cri-1014
+    name: CL-CRI-1014
+    aliases: []
+    theme: APT
+  - id: ta4557
+    name: TA4557
+    aliases: []
+    theme: APT
+  - id: mang-yan-ying
+    name: 盲眼鹰
+    aliases:
+      - Blind Eagle
+      - APT-C-36
+    theme: APT
+  - id: darkgaboon
+    name: DarkGaboon
+    aliases: []
+    theme: APT
+  - id: heptax
+    name: HeptaX
+    aliases: []
+    theme: APT
+  - id: emennet-pasargad
+    name: Emennet Pasargad
+    aliases: []
+    theme: APT
+  - id: apt-c-39
+    name: APT-C-39
+    aliases:
+      - 长角牛
+      - APT-C-39
+      - Lamberts
+      - PLATINUM TERMINAL
+      - the Lamberts
+      - Longhorn
+    theme: APT
+  - id: ransomhub
+    name: RansomHub
+    aliases: []
+    theme: APT
+  - id: bladedfeline
+    name: BladedFeline
+    aliases: []
+    theme: APT
+  - id: passiveneuron
+    name: PassiveNeuron
+    aliases: []
+    theme: APT
+  - id: stolen-pencil
+    name: STOLEN PENCIL
+    aliases: []
+    theme: APT
+  - id: safepay
+    name: SafePay
+    aliases: []
+    theme: APT
+  - id: mre1903
+    name: mre1903
+    aliases: []
+    theme: APT
+  - id: toxic-panda
+    name: Toxic Panda
+    aliases: []
+    theme: APT
+  - id: apt33
+    name: APT33
+    aliases:
+      - Holmium
+      - Elfin
+      - Magnallium
+      - ATK 35
+      - Refined Kitten
+      - TA451
+      - Cobalt Trinity
+      - Peach Sandstorm
+      - Yellow Orc
+      - Curious Serpens
+      - MAGNALLIUM
+      - APT33
+      - Kitten
+    theme: APT
+  - id: nexus-zeta
+    name: Nexus Zeta
+    aliases: []
+    theme: APT
+  - id: muddywater
+    name: MuddyWater
+    aliases:
+      - TEMP.Zagros
+      - Static Kitten
+      - Seedworm
+      - MERCURY
+      - COBALT ULSTER
+      - Earth Vetala
+      - 污水
+      - T-APT-14
+    theme: APT
+  - id: infy
+    name: Infy
+    aliases:
+      - Operation Mermaid
+      - Prince of Persia
+      - Foudre
+      - 美人鱼
+      - APT-C-07
+      - infy
+    theme: APT
+  - id: apt-cnc
+    name: APT_CNC
+    aliases:
+      - CNC
+      - APT-C-48
+      - APT-C-59
+    theme: APT
+  - id: water-gamayun
+    name: Water Gamayun
+    aliases: []
+    theme: APT
+  - id: du-nao-chong
+    name: 肚脑虫
+    aliases:
+      - DoNot Team
+      - Donot Team
+      - APT-C-35
+      - SectorE02
+    theme: APT
+  - id: bloody-wolf
+    name: Bloody Wolf
+    aliases: []
+    theme: APT
+  - id: indrik-spider
+    name: Indrik Spider
+    aliases:
+      - IndrikSpider
+      - GoldDrake
+      - EvilCorp
+      - Evil Corp
+      - Gold Drake
+      - Gold Winter
+      - UNC2165
+      - DEV-0243
+      - Manatee Tempest
+      - Blue Lelantos
+      - INDRIK SPIDER
+      - GOLD WINTER
+    theme: APT
+  - id: fin6
+    name: FIN6
+    aliases:
+      - FIN6
+      - Skeleton Spider
+      - Gold Franklin
+      - White Giant
+      - ITG08
+      - ATK 88
+      - TAG-CR2
+      - TAAL
+      - Camouflage Tempest
+    theme: APT
+  - id: honeybee
+    name: Honeybee
+    aliases: []
+    theme: APT
+  - id: aoqin-dragon
+    name: Aoqin Dragon
+    aliases: []
+    theme: APT
+  - id: pirate-panda
+    name: Pirate Panda
+    aliases:
+      - APT23
+      - APT 23
+      - KeyBoy
+      - TropicTrooper
+      - Tropic Trooper
+      - BRONZE HOBART
+      - Iron
+      - Earth Centaur
+      - Operation Tropic Trooper
+      - Operation TropicTrooper
+    theme: APT
+  - id: ta569
+    name: TA569
+    aliases:
+      - GOLD PRELUDE
+      - UNC1543
+      - DEV-0206
+      - Mustard Tempest
+    theme: APT
+  - id: fang-cheng-shi
+    name: 方程式
+    aliases:
+      - Tilded Team
+      - Lamberts
+      - EQGRP
+      - PLATINUM TERMINAL
+      - Equation Group
+      - Equation
+    theme: APT
+  - id: stealth-falcon
+    name: Stealth Falcon
+    aliases:
+      - FruityArmor
+      - Project Raven
+    theme: APT
+  - id: fin8
+    name: FIN8
+    aliases: []
+    theme: APT
+  - id: dark-caracal
+    name: Dark Caracal
+    aliases:
+      - ATK 27
+      - TAG-CT3
+    theme: APT
+  - id: threat-group-3390
+    name: Threat Group-3390
+    aliases:
+      - Emissary Panda
+      - APT 27
+      - LuckyMouse
+      - Bronze Union
+      - TG-3390
+      - TEMP.Hippo
+      - Budworm
+      - Group 35
+      - ATK 15
+      - Iron Tiger
+      - Earth Smilodon
+      - Red Phoenix
+      - ZipToken
+      - Iron Taurus
+      - aka LuckyMouse
+      - APT27
+      - EMISSARY PANDA
+      - Lucky Mouse
+    theme: APT
+  - id: apt-30
+    name: APT 30
+    aliases:
+      - APT30
+      - Override Panda
+      - CTG-5326
+      - Bronze Geneva
+      - Bronze Sterling
+      - RADIUM
+      - Raspberry Typhoon
+    theme: APT
+  - id: shamoon
+    name: Shamoon
+    aliases:
+      - APT 33
+      - APT33
+      - Elfin
+      - MAGNALLIUM
+      - Refined Kitten
+      - HOLMIUM
+      - COBALT TRINITY
+      - ATK 35
+      - TA451
+      - Peach Sandstorm
+      - Yellow Orc
+      - Curious Serpens
+    theme: APT
+  - id: cleaver
+    name: Cleaver
+    aliases:
+      - Tarh Andishan
+      - Cutting Kitten
+      - Operation Cleaver
+      - Alibaba
+    theme: APT
+  - id: stone-panda
+    name: Stone Panda
+    aliases:
+      - APT10
+      - APT 10
+      - MenuPass
+      - Menupass Team
+      - menuPass
+      - menuPass Team
+      - happyyongzi
+      - POTASSIUM
+      - DustStorm
+      - Red Apollo
+      - CVNX
+      - HOGFISH
+      - Cloud Hopper
+      - BRONZE RIVERSIDE
+      - Cicada
+      - CTG-5938
+      - ATK 41
+      - TA429
+      - ITG01
+      - Granite Taurus
+      - Dust Storm
+    theme: APT
+  - id: machete
+    name: Machete
+    aliases:
+      - Machete
+      - machete-apt
+      - APT-C-43
+      - El Machete
+      - TEMP.Andromeda
+      - ATK 97
+      - TAG-NS1
+    theme: APT
+  - id: mirage
+    name: Mirage
+    aliases:
+      - Vixen Panda
+      - Ke3Chang
+      - GREF
+      - Playful Dragon
+      - APT 15
+      - APT15
+      - Metushy
+      - Lurid
+      - Social Network Team
+      - Royal APT
+      - BRONZE PALACE
+    theme: APT
+  - id: lotus-blossom
+    name: Lotus Blossom
+    aliases:
+      - Spring Dragon
+      - ST Group
+      - Esile
+      - DRAGONFISH
+      - BRONZE ELGIN
+    theme: APT
+  - id: aurora-panda
+    name: Aurora Panda
+    aliases:
+      - APT 17
+      - Deputy Dog
+      - Group 8
+      - APT17
+      - Hidden Lynx
+      - Tailgater Team
+      - Dogfish
+      - BRONZE KEYSTONE
+    theme: APT
+  - id: dragonok
+    name: DragonOK
+    aliases:
+      - Moafee
+      - BRONZE OVERBROOK
+      - Shallow Taurus
+    theme: APT
+  - id: apt34
+    name: APT34
+    aliases:
+      - OilRig
+      - APT 34
+      - Helix Kitten
+      - Twisted Kitten
+      - Crambus
+      - Chrysene
+      - Cobalt Gypsy
+      - TA452
+      - IRN2
+      - ATK 40
+      - ITG13
+      - DEV-0861
+      - EUROPIUM
+      - Hazel Sandstorm
+      - Scarred Manticore
+      - Evasive Serpens
+      - Yellow Maero
+      - Storm-0861
+      - CHRYSENE
+      - Greenbug
+      - APT34
+      - COBALT GYPSY
+      - GreenBug
+      - “人面马”组织
+    theme: APT
+  - id: tag-150
+    name: TAG-150
+    aliases:
+      - GrayBravo
+    theme: APT
+  - id: ta829
+    name: TA829
+    aliases:
+      - RomCom
+      - Void Rabisu
+      - Tropical Scorpius
+      - 热带天蝎座
+    theme: APT
+  - id: apt5
+    name: APT5
+    aliases:
+      - MANGANESE
+      - BRONZE FLEETWOOD
+      - Keyhole Panda
+      - temp.bottle
+      - APT 5
+      - Bronze Fleetwood
+      - TG-2754
+      - Poisoned Flight
+      - Manganese
+      - Mulberry Typhoon
+    theme: APT
+  - id: cold-river
+    name: Cold River
+    aliases:
+      - Nahr Elbard
+      - Nahr el bared
+      - Cobalt Edgewater
+      - TA446
+      - Seaborgium
+      - TAG-53
+      - BlueCharlie
+      - Blue Callisto
+      - Calisto
+      - Star Blizzard
+      - UNC4057
+      - SEABORGIUM
+      - ColdRiver
+    theme: APT
+  - id: unc5174
+    name: UNC5174
+    aliases:
+      - Uteus
+      - UE tus
+      - CL-STA-1015
+    theme: APT
+  - id: buhtrap
+    name: BuhTrap
+    aliases: []
+    theme: APT
+  - id: callisto
+    name: Callisto
+    aliases: []
+    theme: APT
+  - id: danti
+    name: Danti
+    aliases: []
+    theme: APT
+  - id: darkhotel
+    name: Darkhotel
+    aliases:
+      - APT-C-06
+      - ATK 52
+      - CTG-1948
+      - DUBNIUM
+      - DarkHotel
+      - Fallout Team
+      - Higaisa
+      - Karba
+      - Luder
+      - Nemim
+      - Nemin
+      - Pioneer
+      - SIG25
+      - Shadow Crane
+      - T-APT-02
+      - TUNGSTEN BRIDGE
+      - Tapaoux
+      - Zigzag Hail
+    theme: APT
+  - id: madi
+    name: Madi
+    aliases:
+      - Mahdi
+    theme: APT
+  - id: magic-kitten
+    name: Magic Kitten
+    aliases:
+      - Group 42
+      - VOYEUR
+    theme: APT
+  - id: maverick-panda
+    name: Maverick Panda
+    aliases:
+      - APT4
+      - APT 4
+      - BRONZE EDISON
+      - Sykipot
+      - Wisp Team
+      - TG-0623
+      - Sodium
+      - Salmon Typhoo
+    theme: APT
+  - id: platinum
+    name: PLATINUM
+    aliases:
+      - TwoForOne
+    theme: APT
+  - id: neodymium
+    name: NEODYMIUM
+    aliases: []
+    theme: APT
+  - id: poseidon-group
+    name: Poseidon Group
+    aliases: []
+    theme: APT
+  - id: kamacite
+    name: KAMACITE
+    aliases: []
+    theme: APT
+  - id: pitty-panda
+    name: Pitty Panda
+    aliases:
+      - PittyTiger
+      - MANGANESE
+    theme: APT
+  - id: scarlet-mimic
+    name: Scarlet Mimic
+    aliases: []
+    theme: APT
+  - id: ta459
+    name: TA459
+    aliases: []
+    theme: APT
+  - id: unit-8200
+    name: Unit 8200
+    aliases:
+      - Duqu Group
+    theme: APT
+  - id: violin-panda
+    name: Violin Panda
+    aliases:
+      - APT20
+      - APT 20
+      - TH3Bug
+      - Twivy
+      - APT 8
+      - Crawling Taurus
+    theme: APT
+  - id: vanadinite
+    name: VANADINITE
+    aliases: []
+    theme: APT
+  - id: wekby
+    name: Wekby
+    aliases:
+      - Dynamite Panda
+      - TG-0416
+      - APT 18
+      - SCANDIUM
+      - APT18
+    theme: APT
+  - id: wildneutron
+    name: WildNeutron
+    aliases:
+      - Butterfly
+      - Morpho
+      - Sphinx Moth
+      - Wild Neutron
+      - The Postal Group
+    theme: APT
+  - id: leafminer
+    name: Leafminer
+    aliases:
+      - Raspite
+      - RASPITE
+    theme: APT
+  - id: rancor
+    name: RANCOR
+    aliases:
+      - Rancor group
+      - Rancor
+      - Rancor Group
+      - Rancor Taurus
+      - G0075
+    theme: APT
+  - id: darkhydrus
+    name: DarkHydrus
+    aliases:
+      - LazyMeerkat
+      - LazyMeerkat
+      - ATK 77
+      - Obscure Serpens
+    theme: APT
+  - id: zombie-spider
+    name: Zombie Spider
+    aliases:
+      - ZOMBIE SPIDER
+    theme: APT
+  - id: thrip
+    name: Thrip
+    aliases: []
+    theme: APT
+  - id: fastcash
+    name: FASTCash
+    aliases: []
+    theme: APT
+  - id: roaming-mantis
+    name: Roaming Mantis
+    aliases:
+      - shaoye
+    theme: APT
+  - id: operation-sharpshooter
+    name: Operation Sharpshooter
+    aliases: []
+    theme: APT
+  - id: mummy-spider
+    name: MUMMY SPIDER
+    aliases:
+      - TA542
+      - Mummy Spider
+      - GOLD CRESTWOOD
+      - Mealybug
+      - ATK 104
+    theme: APT
+  - id: siesta
+    name: Siesta
+    aliases: []
+    theme: APT
+  - id: gallmaker
+    name: Gallmaker
+    aliases: []
+    theme: APT
+  - id: flash-kitten
+    name: Flash Kitten
+    aliases: []
+    theme: APT
+  - id: operation-kabar-cobra
+    name: Operation Kabar Cobra
+    aliases: []
+    theme: APT
+  - id: iridium
+    name: IRIDIUM
+    aliases: []
+    theme: APT
+  - id: operation-comando
+    name: Operation Comando
+    aliases: []
+    theme: APT
+  - id: gnosticplayers
+    name: Gnosticplayers
+    aliases: []
+    theme: APT
+  - id: pacha-group
+    name: Pacha Group
+    aliases: []
+    theme: APT
+  - id: ta410
+    name: TA410
+    aliases:
+      - LookBack
+      - Witchetty
+      - LookingFrog
+      - FlowingFrog
+    theme: APT
+  - id: calypso-group
+    name: Calypso group
+    aliases:
+      - Calypso
+      - Calypso APT
+    theme: APT
+  - id: ta2101
+    name: TA2101
+    aliases:
+      - TA2101
+      - Maze Team
+      - Twisted Spider
+      - Gold Village
+    theme: APT
+  - id: kimsuky
+    name: Kimsuky
+    aliases:
+      - Velvet Chollima
+      - Black Banshee
+      - Thallium
+      - Operation Stolen Pencil
+      - APT-C-55
+      - SharpTongue
+      - ITG16
+      - TA406
+      - TA427
+      - APT 43
+      - ARCHIPELAGO
+      - Emerald Sleet
+      - KTA082
+      - kimsuky APT
+      - Mystery Baby
+      - Baby Coin
+      - Smoke Screen
+      - BabyShark
+      - Cobra Venom
+    theme: APT
+  - id: rebel-jackal
+    name: Rebel Jackal
+    aliases:
+      - FallagaTeam
+    theme: APT
+  - id: anthropoid-spider
+    name: ANTHROPOID SPIDER
+    aliases:
+      - Empire Monkey
+      - CobaltGoblin
+    theme: APT
+  - id: globeimposter
+    name: GlobeImposter
+    aliases: []
+    theme: APT
+  - id: you-xiang
+    name: 幼象
+    aliases: []
+    theme: APT
+  - id: sharppanda
+    name: SharpPanda
+    aliases:
+      - Sharp Dragon
+    theme: APT
+  - id: backdoordiplomacy
+    name: BackdoorDiplomacy
+    aliases: []
+    theme: APT
+  - id: cyrus
+    name: Cyrus
+    aliases: []
+    theme: APT
+  - id: puzzlemaker
+    name: PuzzleMaker
+    aliases: []
+    theme: APT
+  - id: fxmsp
+    name: Fxmsp
+    aliases: []
+    theme: APT
+  - id: dark-basin
+    name: Dark Basin
+    aliases:
+      - Mercenary.Amanda
+    theme: APT
+  - id: armor-piercer
+    name: Armor Piercer
+    aliases: []
+    theme: APT
+  - id: malkamak
+    name: MalKamak
+    aliases:
+      - Operation GhostShell
+    theme: APT
+  - id: sidecopy
+    name: SideCopy
+    aliases: []
+    theme: APT
+  - id: void-balaur
+    name: Void Balaur
+    aliases:
+      - Rockethack
+    theme: APT
+  - id: aquatic-panda
+    name: Aquatic Panda
+    aliases: []
+    theme: APT
+  - id: apt-c-40
+    name: APT-C-40
+    aliases:
+      - NSA
+    theme: APT
+  - id: finghost
+    name: FinGhost
+    aliases: []
+    theme: APT
+  - id: mu-lun-sha
+    name: 穆伦鲨
+    aliases:
+      - APT-N-04
+      - MurenShark
+      - MURENSHARK
+    theme: APT
+  - id: worok
+    name: Worok
+    aliases: []
+    theme: APT
+  - id: polonium
+    name: POLONIUM
+    aliases: []
+    theme: APT
+  - id: fin7
+    name: FIN7
+    aliases: []
+    theme: APT
+  - id: apt-ly-1004
+    name: APT-LY-1004
+    aliases: []
+    theme: APT
+  - id: magnetic-spider
+    name: Magnetic Spider
+    aliases: []
+    theme: APT
+  - id: sands-casino
+    name: Sands Casino
+    aliases: []
+    theme: APT
+  - id: viking-jackal
+    name: Viking Jackal
+    aliases:
+      - Vikingdom
+    theme: APT
+  - id: earth-berberoka
+    name: Earth Berberoka
+    aliases:
+      - GamblingPuppet
+    theme: APT
+  - id: gibberish-panda
+    name: Gibberish Panda
+    aliases: []
+    theme: APT
+  - id: sabre-panda
+    name: Sabre Panda
+    aliases: []
+    theme: APT
+  - id: jin-gang-xiang
+    name: 金刚象
+    aliases:
+      - APT-Q-43
+      - VajraEleph
+    theme: APT
+  - id: dextorous-spider
+    name: Dextorous Spider
+    aliases: []
+    theme: APT
+  - id: nocturnal-spider
+    name: NOCTURNAL SPIDER
+    aliases: []
+    theme: APT
+  - id: dungeon-spider
+    name: Dungeon Spider
+    aliases:
+      - DUNGEON SPIDER
+    theme: APT
+  - id: smoky-spider
+    name: SMOKY SPIDER
+    aliases: []
+    theme: APT
+  - id: scully-spider
+    name: SCULLY SPIDER
+    aliases:
+      - TA547
+    theme: APT
+  - id: sandman
+    name: Sandman
+    aliases: []
+    theme: APT
+  - id: monty-spider
+    name: MONTY SPIDER
+    aliases:
+      - Gold Riverview
+      - GOLD RIVERVIEW
+    theme: APT
+  - id: goldenjackal
+    name: GoldenJackal
+    aliases: []
+    theme: APT
+  - id: uac-0154
+    name: UAC-0154
+    aliases: []
+    theme: APT
+  - id: sha-li-mao
+    name: 沙猁猫
+    aliases:
+      - Caracal Kitten
+      - APT-Q-58
+    theme: APT
+  - id: desorden-group
+    name: Desorden Group
+    aliases:
+      - ChaosCC
+    theme: APT
+  - id: carderbee
+    name: Carderbee
+    aliases: []
+    theme: APT
+  - id: starry-addax
+    name: Starry Addax
+    aliases: []
+    theme: APT
+  - id: fin4
+    name: FIN4
+    aliases:
+      - Wolf Spider
+    theme: APT
+  - id: boson-spider
+    name: BOSON SPIDER
+    aliases: []
+    theme: APT
+  - id: samurai-panda
+    name: Samurai Panda
+    aliases:
+      - Wisp Team
+    theme: APT
+  - id: nightshade-panda
+    name: Nightshade Panda
+    aliases:
+      - APT 9
+      - Group 27
+      - Flowerlady
+      - Flowershow
+      - Nightshade Panda
+      - FlowerLady
+      - FlowerShow
+    theme: APT
+  - id: belialdemon
+    name: BelialDemon
+    aliases: []
+    theme: APT
+  - id: circus-spider
+    name: CIRCUS SPIDER
+    aliases: []
+    theme: APT
+  - id: hellsing
+    name: Hellsing
+    aliases: []
+    theme: APT
+  - id: mallard-spider
+    name: MALLARD SPIDER
+    aliases: []
+    theme: APT
+  - id: xhunt
+    name: xHunt
+    aliases: []
+    theme: APT
+  - id: th-261
+    name: TH-261
+    aliases: []
+    theme: APT
+  - id: goblin-panda
+    name: Goblin Panda
+    aliases:
+      - Hellsing
+      - Conimes
+      - Cycldek
+      - 1937CN
+    theme: APT
+  - id: viking-spider
+    name: VIKING SPIDER
+    aliases: []
+    theme: APT
+  - id: fin11
+    name: FIN11
+    aliases:
+      - DEV-0950
+      - Lace Tempest
+    theme: APT
+  - id: nullbulge
+    name: NullBulge
+    aliases: []
+    theme: APT
+  - id: dizzy-panda
+    name: Dizzy Panda
+    aliases:
+      - LadyBoyle
+    theme: APT
+  - id: ta575
+    name: TA575
+    aliases: []
+    theme: APT
+  - id: mirrorface
+    name: MirrorFace
+    aliases: []
+    theme: APT
+  - id: ai-deng-hu
+    name: 艾登狐
+    aliases:
+      - Actor240524
+      - IdenFox
+    theme: APT
+  - id: impersonating-panda
+    name: Impersonating Panda
+    aliases: []
+    theme: APT
+  - id: lu-gan-si-ke
+    name: 卢甘斯克
+    aliases: []
+    theme: APT
+  - id: uac-0063
+    name: UAC-0063
+    aliases: []
+    theme: APT
+  - id: evilpost
+    name: EvilPost
+    aliases: []
+    theme: APT
+  - id: gxc-team
+    name: GXC Team
+    aliases: []
+    theme: APT
+  - id: handala
+    name: Handala
+    aliases: []
+    theme: APT
+  - id: bei-fei-hu
+    name: 北非狐
+    aliases: []
+    theme: APT
+  - id: utg-q-010
+    name: UTG-Q-010
+    aliases: []
+    theme: APT
+  - id: unc2529
+    name: UNC2529
+    aliases: []
+    theme: APT
+  - id: cobalt-dickens
+    name: COBALT DICKENS
+    aliases:
+      - Cobalt Dickens
+      - Mabna Institute
+      - Silent Librarian
+      - Yellow Nabu
+      - TA407
+      - TA4900
+      - COBALT DICKENS
+    theme: APT
+  - id: funnydream
+    name: FunnyDream
+    aliases: []
+    theme: APT
+  - id: apt-k-un3
+    name: APT-K-UN3
+    aliases: []
+    theme: APT
+  - id: copykittens
+    name: CopyKittens
+    aliases:
+      - Slayer Kitten
+    theme: APT
+  - id: operation-parliament
+    name: Operation Parliament
+    aliases: []
+    theme: APT
+  - id: gleaming-pisces
+    name: Gleaming Pisces
+    aliases:
+      - Citrine Sleet
+      - AppleJeus
+    theme: APT
+  - id: ceranakeeper
+    name: CeranaKeeper
+    aliases: []
+    theme: APT
+  - id: snake-wine
+    name: Snake Wine
+    aliases: []
+    theme: APT
+  - id: awaken-likho
+    name: Awaken Likho
+    aliases:
+      - Core Werewolf
+      - PseudoGamaredon
+    theme: APT
+  - id: mysterious-elephant
+    name: Mysterious Elephant
+    aliases:
+      - 神秘象
+    theme: APT
+  - id: zebra2104
+    name: Zebra2104
+    aliases: []
+    theme: APT
+  - id: mosesstaff
+    name: MosesStaff
+    aliases:
+      - Abraham's Ax
+      - DEV-0500
+      - Cobalt Sapling
+      - Marigold Sandstorm
+      - Vengeful Kitten
+      - White Dev 95
+    theme: APT
+  - id: ye-ying
+    name: 夜鹰
+    aliases:
+      - APT-Q-95
+      - APT-C-78
+    theme: APT
+  - id: kylin-locker
+    name: Kylin Locker
+    aliases: []
+    theme: APT
+  - id: sparkcat
+    name: SparkCat
+    aliases: []
+    theme: APT
+  - id: stalker-panda
+    name: Stalker Panda
+    aliases:
+      - Bronze Butler
+      - CTG-2006
+      - Tick
+      - TEMP.Tick
+      - RedBaldNight
+      - Stalker Taurus
+      - RedBaldKnight
+      - G0060
+      - Nian
+      - PLA Unit 61419
+      - REDBALDKNIGHT
+      - STALKER PANDA
+      - TempTick
+      - Stalker Panda
+    theme: APT
+  - id: amdc6766
+    name: amdc6766
+    aliases: []
+    theme: APT
+  - id: reddirection
+    name: RedDirection
+    aliases: []
+    theme: APT
+  - id: funnull
+    name: Funnull
+    aliases: []
+    theme: APT
+  - id: unc4990
+    name: UNC4990
+    aliases: []
+    theme: APT
+  - id: apt-q-12
+    name: APT-Q-12
+    aliases: []
+    theme: APT
+  - id: tortoiseshell
+    name: Tortoiseshell
+    aliases:
+      - Imperial Kitten
+      - TA456
+      - Curium
+      - Marcella Flores
+      - Houseblend
+      - Crimson Sandstorm
+      - Yellow Liderc
+      - UNC1549
+    theme: APT
+  - id: ta2541
+    name: TA2541
+    aliases: []
+    theme: APT
+  - id: modifiedelephant-apt
+    name: ModifiedElephant APT
+    aliases:
+      - ModifiedElephant
+    theme: APT
+  - id: anonymous
+    name: Anonymous
+    aliases:
+      - 匿名者
+    theme: APT
+  - id: patchwork
+    name: Patchwork
+    aliases:
+      - 白象
+      - 摩诃草
+      - Chinastrats
+      - Dropping Elephant
+      - Monsoon
+      - Sarit
+      - Quilted Tiger
+      - APT-C-09
+      - ZINC EMERSON
+      - HangOver
+      - VICEROY TIGER
+      - The Dropping Elephant
+      - Patchwork
+      - Viceroy Tiger
+      - Appin
+      - OperationHangover
+      - Neon
+    theme: APT
+  - id: utg-q-1000
+    name: UTG-Q-1000
+    aliases: []
+    theme: APT
+  - id: silent-lynx
+    name: Silent Lynx
+    aliases: []
+    theme: APT
+  - id: sea-turtle
+    name: Sea Turtle
+    aliases:
+      - Silicon
+      - UNC1326
+      - Marbled Dust
+      - Teal Kurma
+      - Cosmic Wolf
+    theme: APT
+  - id: bamboo-spider
+    name: BAMBOO SPIDER
+    aliases:
+      - TA544
+    theme: APT
+  - id: gold-dupont
+    name: GOLD DUPONT
+    aliases: []
+    theme: APT
+  - id: oceandoge
+    name: OceanDoge
+    aliases:
+      - APT-LY-1003
+    theme: APT
+  - id: ata
+    name: ata
+    aliases: []
+    theme: APT
+  - id: corsair-jackal
+    name: Corsair Jackal
+    aliases:
+      - TunisianCyberArmy
+    theme: APT
+  - id: medusa
+    name: Medusa
+    aliases: []
+    theme: APT
+  - id: union-spider
+    name: Union Spider
+    aliases: []
+    theme: APT
+  - id: tracer-kitten
+    name: TRACER KITTEN
+    aliases: []
+    theme: APT
+  - id: gold-mansard
+    name: GOLD MANSARD
+    aliases:
+      - Nemty
+      - Traveling Spider
+      - TRAVELING SPIDER
+    theme: APT
+  - id: pale-panda
+    name: Pale Panda
+    aliases: []
+    theme: APT
+  - id: poisonous-panda
+    name: Poisonous Panda
+    aliases: []
+    theme: APT
+  - id: spicy-panda
+    name: Spicy Panda
+    aliases: []
+    theme: APT
+  - id: unc5221
+    name: UNC5221
+    aliases:
+      - Red Dev 61
+      - UTA0178
+    theme: APT
+  - id: juiceledger
+    name: JuiceLedger
+    aliases: []
+    theme: APT
+  - id: avivore
+    name: AVIVORE
+    aliases: []
+    theme: APT
+  - id: cyber-fighters-of-izz-ad-din-al-qassam
+    name: Cyber fighters of Izz Ad-Din Al Qassam
+    aliases:
+      - Fraternal Jackal
+      - Qassam Cyber Fighters
+      - QCF
+    theme: APT
+  - id: groundbait
+    name: Groundbait
+    aliases: []
+    theme: APT
+  - id: ixeshe
+    name: IXESHE
+    aliases:
+      - Numbered Panda
+      - TG-2754
+      - BeeBus
+      - Group 22
+      - DynCalc
+      - Calc Team
+      - DNSCalc
+      - Crimson Iron
+      - APT12
+      - APT 12
+      - BRONZE GLOBE
+    theme: APT
+  - id: mo-luo-suo
+    name: 魔罗桫
+    aliases:
+      - Confucius
+    theme: APT
+  - id: anchor-panda
+    name: Anchor Panda
+    aliases:
+      - APT14
+      - APT 14
+      - QAZTeam
+      - ALUMINUM
+    theme: APT
+  - id: apt-26
+    name: APT 26
+    aliases:
+      - APT26
+      - Hippo Team
+      - JerseyMikes
+      - Turbine Panda
+      - BRONZE EXPRESS
+      - Shell Crew
+      - WebMasters
+      - KungFu Kittens
+      - Group 13
+      - PinkPanther
+      - Black Vine
+    theme: APT
+  - id: suckfly
+    name: Suckfly
+    aliases: []
+    theme: APT
+  - id: libyan-scorpions
+    name: Libyan Scorpions
+    aliases: []
+    theme: APT
+  - id: magecart
+    name: MageCart
+    aliases: []
+    theme: APT
+  - id: fin5
+    name: FIN5
+    aliases: []
+    theme: APT
+  - id: cadelle
+    name: Cadelle
+    aliases: []
+    theme: APT
+  - id: codoso
+    name: Codoso
+    aliases:
+      - C0d0so
+      - APT19
+      - APT 19
+      - Sunshop Group
+      - Codoso Team
+      - C0d0so0
+    theme: APT
+  - id: xenotime
+    name: XENOTIME
+    aliases:
+      - TEMP.Veles
+      - Xenotime
+    theme: APT
+  - id: cyber-caliphate-army
+    name: Cyber Caliphate Army
+    aliases:
+      - Islamic State Hacking Division
+      - CCA
+      - United Cyber Caliphate
+      - UUC
+      - CyberCaliphate
+      - ATK 133
+      - TAG-CT6
+    theme: APT
+  - id: cobalt-group
+    name: Cobalt Group
+    aliases:
+      - Cobalt group
+      - Cobalt Group
+      - Cobalt gang
+      - Cobalt Gang
+      - GOLD KINGSWOOD
+      - Cobalt Spider
+      - Cobalt
+      - TAG-CR3
+      - Mule Libra
+      - Gold Kingswood
+      - ATK 67
+    theme: APT
+  - id: apt-22
+    name: APT 22
+    aliases:
+      - APT22
+      - BRONZE OLIVE
+    theme: APT
+  - id: gc01
+    name: GC01
+    aliases:
+      - Golden Chickens
+      - Golden Chickens01
+      - Golden Chickens 01
+    theme: APT
+  - id: turkhackteam
+    name: TurkHackTeam
+    aliases:
+      - Turk Hack Team
+    theme: APT
+  - id: gcman
+    name: GCMAN
+    aliases: []
+    theme: APT
+  - id: apt-c-60
+    name: APT-C-60
+    aliases: []
+    theme: APT
+  - id: shark-spider
+    name: Shark Spider
+    aliases: []
+    theme: APT
+  - id: comment-crew
+    name: Comment Crew
+    aliases:
+      - Comment Panda
+      - APT 1
+      - APT1
+      - Advanced Persistent Threat 1
+      - Byzantine Candor
+      - Group 3
+      - TG-8223
+      - Comment Group
+      - Brown Fox
+      - GIF89a
+      - ShadyRAT
+      - Shanghai Group
+      - Unit 61398
     theme: APT
