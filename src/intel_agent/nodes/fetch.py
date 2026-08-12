@@ -1,35 +1,137 @@
-"""
+﻿"""
 抓取节点 — URL -> 正文纯文本
 
 约束：
 - 异常不抛，写结构化错误字段让 router 早退
 - 不调 LLM
 - requests+readability 为主，Playwright 兜底
+- 非 HTML 内容通过适配器提取（PDF/纯文本等）
+- URL 型适配器（YouTube）在 HTML 之前优先判断
+- 本地文件路径直接读取
 """
 
 from __future__ import annotations
 
 import logging
+from pathlib import Path
 from typing import Optional
 
 logger = logging.getLogger(__name__)
 
 
+def _is_local_path(url: str) -> bool:
+    """判断是否为本地文件路径。"""
+    path = Path(url)
+    return path.exists() and path.is_file()
+
+
+def _fetch_local_file(url: str) -> Optional[str]:
+    """读取本地文件，通过适配器提取文本。"""
+    path = Path(url)
+
+    # 构造一个假的 requests.Response 给适配器
+    class _FakeResponse:
+        def __init__(self, content, content_type): self.content = content; self.headers = {"Content-Type": content_type}
+    import mimetypes
+    mime, _ = mimetypes.guess_type(str(path))
+    mime = mime or "application/octet-stream"
+    data = path.read_bytes()
+    fake_resp = _FakeResponse(data, mime)
+
+    try:
+        from ..adapters import get_adapters
+    except ImportError:
+        return None
+
+    for adapter in get_adapters():
+        if adapter.can_handle(mime, url):
+            logger.info("[local] 尝试 %s 处理 %s", type(adapter).__name__, path.name)
+            try:
+                text = adapter.extract(url, fake_resp)
+                if text and len(text.strip()) >= 200:
+                    logger.info("[local] %s 成功: %d 字", type(adapter).__name__, len(text))
+                    return text
+            except Exception as e:
+                logger.warning("[local] %s 失败: %s", type(adapter).__name__, e)
+
+    # 兜底：直接读文本
+    try:
+        text = data.decode("utf-8")
+        if len(text.strip()) >= 200:
+            return text
+    except UnicodeDecodeError:
+        pass
+
+    return None
+
+
+def _try_url_adapters(url: str) -> Optional[str]:
+    """URL 型适配器优先判断（如 YouTube），不需要等待 HTTP 响应。"""
+    try:
+        from ..adapters import get_adapters
+    except ImportError:
+        return None
+
+    for adapter in get_adapters():
+        if adapter.can_handle("", url):
+            logger.info("[adapter-url] 尝试 %s", type(adapter).__name__)
+            try:
+                text = adapter.extract(url)
+                if text and len(text.strip()) >= 200:
+                    logger.info("[adapter-url] %s 成功: %d 字", type(adapter).__name__, len(text))
+                    return text
+            except Exception as e:
+                logger.warning("[adapter-url] %s 失败: %s", type(adapter).__name__, e)
+    return None
+
+
+def _try_adapters(url: str, content_type: str, response) -> tuple[Optional[str], Optional[str]]:
+    """遍历适配器尝试提取文本（PDF/纯文本等非 HTML 内容）。"""
+    try:
+        from ..adapters import get_adapters
+    except ImportError:
+        return None, "适配器模块不可用"
+
+    for adapter in get_adapters():
+        if adapter.can_handle(content_type, url):
+            logger.info("[adapter] 尝试 %s 处理 %s", type(adapter).__name__, url)
+            try:
+                text = adapter.extract(url, response)
+                if text and len(text.strip()) >= 200:
+                    logger.info("[adapter] %s 成功: %d 字", type(adapter).__name__, len(text))
+                    return text, None
+                if text and len(text.strip()) > 0:
+                    return text, None
+                return None, f"{type(adapter).__name__} 返回空文本"
+            except Exception as e:
+                logger.warning("[adapter] %s 失败: %s", type(adapter).__name__, e)
+                continue
+
+    return None, None
+
+
 def fetch_report_text(url: str, timeout: int = 15) -> tuple[Optional[str], Optional[str]]:
-    """
-    抓取报告正文。
-
-    策略：requests + readability-lxml 为主，Playwright 兜底。
-
-    Args:
-        url: 报告 URL
-        timeout: 请求超时（秒）
-
-    Returns:
-        (report_text, error) — 成功时 error 为 None，失败时 report_text 为 None
+    """抓取报告正文。策略：
+    0. 本地文件路径直接读取
+    1. URL 型适配器优先（YouTube 等）
+    2. requests + readability-lxml 处理 HTML
+    3. 非 HTML 内容通过 Content-Type 适配器（PDF 等）
+    4. Playwright 兜底
     """
     import requests
     from bs4 import BeautifulSoup
+
+    # ---- 0. 本地文件路径 ----
+    if _is_local_path(url):
+        text = _fetch_local_file(url)
+        if text:
+            return text, None
+        return None, "本地文件读取失败"
+
+    # ---- 0.1 URL 型适配器 ----
+    url_text = _try_url_adapters(url)
+    if url_text:
+        return url_text, None
 
     headers = {
         "User-Agent": (
@@ -46,16 +148,18 @@ def fetch_report_text(url: str, timeout: int = 15) -> tuple[Optional[str], Optio
         resp = requests.get(url, timeout=timeout, headers=headers, allow_redirects=True)
         resp.raise_for_status()
 
-        # 检查是否为 HTML 内容
         content_type = resp.headers.get("Content-Type", "")
         if "text/html" not in content_type and "application/xhtml" not in content_type:
-            # 非 HTML 直接返回文本
+            adapter_text, adapter_error = _try_adapters(url, content_type, resp)
+            if adapter_text is not None:
+                return adapter_text, None
+            if adapter_error is not None:
+                return None, adapter_error
             text = resp.text.strip()
             if len(text) >= 200:
                 return text, None
             return None, f"Content-Type 非 HTML ({content_type})，正文 {len(text)} 字"
 
-        # readability 抽取正文
         try:
             from readability import Document
             doc = Document(resp.text)
@@ -63,14 +167,12 @@ def fetch_report_text(url: str, timeout: int = 15) -> tuple[Optional[str], Optio
         except ImportError:
             html_content = resp.text
 
-        # 清洗 HTML 标签
         text = BeautifulSoup(html_content, "lxml").get_text(" ", strip=True)
 
         if len(text) >= 200:
             logger.info("requests+readability 成功: %d 字", len(text))
             return text, None
 
-        # 正文过短，尝试 Playwright 兜底
         logger.info("正文过短（%d 字），尝试 Playwright 兜底", len(text))
 
     except requests.exceptions.Timeout:
@@ -106,7 +208,7 @@ def _fetch_with_playwright(url: str, timeout: int = 15) -> Optional[str]:
         page = browser.new_page()
         try:
             page.goto(url, timeout=timeout * 1000, wait_until="domcontentloaded")
-            page.wait_for_timeout(2000)  # 额外等待 JS 渲染
+            page.wait_for_timeout(2000)
             text = page.inner_text("body")
             return text.strip()
         finally:
@@ -114,27 +216,11 @@ def _fetch_with_playwright(url: str, timeout: int = 15) -> Optional[str]:
 
 
 def fetch_node(state: dict) -> dict:
-    """
-    抓取节点（LangGraph 节点函数）。
-
-    返回部分 state，框架按 reducer 合并。
-    """
     url = state["url"]
     logger.info("[fetch] 开始抓取: %s", url)
-
     report_text, error = fetch_report_text(url)
-
     if error:
         logger.warning("[fetch] 失败: %s", error)
-        return {
-            "report_text": None,
-            "fetch_error": error,
-            "execution_log": [f"fetch 失败: {error}"],
-        }
-
+        return {"report_text": None, "fetch_error": error, "execution_log": [f"fetch 失败: {error}"]}
     logger.info("[fetch] 成功: %d 字", len(report_text))
-    return {
-        "report_text": report_text,
-        "fetch_error": None,
-        "execution_log": [f"fetch 成功: {len(report_text)} 字"],
-    }
+    return {"report_text": report_text, "fetch_error": None, "execution_log": [f"fetch 成功: {len(report_text)} 字"]}
